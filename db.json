@@ -1,38 +1,14 @@
 {
   "users": [
     {
-      "id": "1",
-      "name": "sơn"
-    },
-    {
-      "id": "2",
-      "name": "quynh"
-    },
-    {
-      "id": "3",
-      "name": "khac son"
-    },
-    {
-      "name": "cuong",
-      "id": "LosIC6nUE"
-    },
-    {
-      "name": "le hoang khac son",
-      "id": "WdtFO3UY3"
-    },
-    {
-      "name": "nguyen tuong vi",
-      "id": "Ii247_nw4"
-    },
-    {
       "name": "sơn",
       "age": "18",
       "id": "Eyhg0dsgW"
     },
     {
-      "name": "",
-      "age": "",
-      "id": "Wm3Ee0GVS"
+      "name": "lê thị ái quỳnh",
+      "age": "20",
+      "id": "I8cWY1TkE"
     }
   ]
 }
