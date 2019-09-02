@@ -1,0 +1,10 @@
+extends ../layout/common.pug
+block content
+	h1 create User
+
+	form(action="/users/create", method="POST")
+		lable Name
+		input(type="text", name="name", class="ml-2 mr-5")
+		label Age
+		input(type="text", name="age", class="ml-2")
+		button create

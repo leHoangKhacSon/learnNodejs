@@ -1,0 +1,24 @@
+html
+	head
+		title= title
+		link(rel="stylesheet", href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css")
+		link(rel="stylesheet", href="../styles/custome.css")
+
+	body(style="overflow-x: hidden")
+		h1= message	
+		nav(class="navbar navbar-expand-lg navbar-light bg-light")
+			a(class="navbar-brand" href="/") Home
+			div(class="collapse navbar-collapse" id="navbarSupportedContent")
+				ul(class="navbar-nav mr-auto")
+					li(class="nav-item d-flex")
+						a(class="nav-link" href="/users") Users
+						a(class="nav-link" href="/users") Thành Viên
+						a(class="nav-link" href="/users") Thông Tin
+						a(class="nav-link" href="/users") Album Ảnh
+						a(class="nav-link" href="/users") FeedBack
+		div(class="pic-style")
+			img(src="/images/pic.jpg", class="img-fluid")
+		
+
+			
+		
