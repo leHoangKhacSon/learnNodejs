@@ -1,10 +1,13 @@
 extends ../layout/common.pug
 block content
-	h1 create User
+	h1 Create User
 
 	form(action="/users/create", method="POST")
-		lable Name
-		input(type="text", name="name", class="ml-2 mr-5")
-		label Age
-		input(type="text", name="age", class="ml-2")
-		button create
+		.form-group
+			lable(for="name") Name
+			input#name.form-control(type="text", name="name", placeholder="Enter name")
+
+		.form-group
+			lable(for="age") Age
+			input#age.form-control(type="text", name="age", placeholder="Enter age")
+		button.btn.btn-primary create
