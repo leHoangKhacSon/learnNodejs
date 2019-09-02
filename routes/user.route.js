@@ -3,6 +3,7 @@ var express = require('express');
 var shortid = require('shortid');
 
 const db = require('../db');
+const validate = require('../validate/user.validate.js');
 const controller = require('../controllers/user.controller.js');
 
 var router = express.Router();
@@ -15,6 +16,6 @@ router.get('/create', controller.create);
 // lay du lieu khi co request gui den users co id = ...
 router.get('/:id', controller.get);
 // router post du lieu khi create
-router.post('/create', controller.postCreate);
+router.post('/create', validate.postCreate, controller.postCreate);
 
 module.exports = router;
