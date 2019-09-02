@@ -1,0 +1,10 @@
+h1 {
+	background-color: #EEE;
+	margin-bottom: 0;
+	padding-left: 40%;
+}
+
+.pic-style {
+	width: 100%;
+	overflow-x: hidden;
+}
