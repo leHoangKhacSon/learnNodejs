@@ -3,12 +3,16 @@
     {
       "name": "sơn",
       "age": "18",
-      "id": "Eyhg0dsgW"
+      "id": "Eyhg0dsgW",
+      "email": "son@gmail.com",
+      "password": "123456"
     },
     {
       "name": "lê thị ái quỳnh",
       "age": "20",
-      "id": "ZnMVLhglH"
+      "id": "ZnMVLhglH",
+      "email": "lethiaiquynh@gmail.com",
+      "password": "123456"
     }
   ]
 }
