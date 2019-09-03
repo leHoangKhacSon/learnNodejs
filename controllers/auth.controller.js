@@ -1,4 +1,5 @@
 const db = require('../db.js');
+const md5 = require('md5');
 
 module.exports.login = function(req, res){
 	res.render('auth/login');
@@ -18,8 +19,10 @@ module.exports.postLogin = function(req, res){
 		});
 		return;
 	}
+	// mã hóa mật khẩu người dùng nhập vào
+	let hashPassword = md5(req.body.password);
 	// nếu sai mật khẩu
-	if(user.password !== req.body.password){
+	if(user.password !== hashPassword){
 		res.render('auth/login', {
 			errors: [
 				'sai mật khẩu'
