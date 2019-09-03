@@ -35,6 +35,8 @@ module.exports.get = function(req, res){
 module.exports.postCreate = function(req, res){
 	// tao id ngau nhien cho req.body
 	req.body.id = shortid.generate();
+	// lưu đường dẫn vào database
+	req.body.avatar = req.file.path.split('\\').slice(1).join('/');
 	// them du lieu vao database
 	db.get('users')
 	  .push(req.body)

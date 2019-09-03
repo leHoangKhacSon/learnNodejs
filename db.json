@@ -5,14 +5,28 @@
       "age": "18",
       "id": "Eyhg0dsgW",
       "email": "son@gmail.com",
-      "password": "e10adc3949ba59abbe56e057f20f883e"
+      "password": "e10adc3949ba59abbe56e057f20f883e",
+      "avatar": "uploads/871cbb315805ebcc67334a4945ef1899"
     },
     {
       "name": "lê thị ái quỳnh",
       "age": "20",
       "id": "ZnMVLhglH",
       "email": "lethiaiquynh@gmail.com",
-      "password": "e10adc3949ba59abbe56e057f20f883e"
+      "password": "e10adc3949ba59abbe56e057f20f883e",
+      "avatar": "uploads/871cbb315805ebcc67334a4945ef1899"
+    },
+    {
+      "name": "le hoang khac son",
+      "age": "18",
+      "id": "HFosgjm15",
+      "avatar": "uploads/871cbb315805ebcc67334a4945ef1899"
+    },
+    {
+      "name": "son",
+      "age": "20",
+      "id": "6MK5rZgtB",
+      "avatar": "uploads/08a54b4f7c9419fb7774314e0c01e2bc"
     }
   ],
   "products": [
