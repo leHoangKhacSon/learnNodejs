@@ -2,5 +2,16 @@ html
 	head
 		link(rel="stylesheet", href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css")
 	body
-		block content
-		block main
+		nav(class="navbar navbar-expand-lg navbar-light bg-light")
+			a(class="navbar-brand" href="/") Home
+			div(class="collapse navbar-collapse" id="navbarSupportedContent")
+				ul(class="navbar-nav mr-auto")
+					li(class="nav-item d-flex")
+						a(class="nav-link" href="/users") Users
+						a(class="nav-link" href="/users") Thành Viên
+						a(class="nav-link" href="/users") Thông Tin
+						a(class="nav-link" href="/users") Album Ảnh
+						a(class="nav-link" href="/users") FeedBack
+		.container.pt-5
+			block content
+			block main
