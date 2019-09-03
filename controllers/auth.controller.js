@@ -32,7 +32,9 @@ module.exports.postLogin = function(req, res){
 	}
 	// nếu pass hết
 	// set cookie
-	res.cookie('userId', user.id);
+	res.cookie('userId', user.id, {
+		signed: true
+	});
 
 	res.redirect('/users');
 };

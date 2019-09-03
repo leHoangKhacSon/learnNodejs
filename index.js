@@ -1,5 +1,6 @@
 const express = require('express');
-var cookieParser = require('cookie-parser')
+var cookieParser = require('cookie-parser');
+const shortid = require('shortid');
 
 const userRoute = require('./routes/user.route.js');
 const authRoute = require('./routes/auth.route.js');
@@ -13,7 +14,7 @@ app.set('views', './views');
 
 app.use(express.json()) // for parsing application/json
 app.use(express.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
-app.use(cookieParser());
+app.use(cookieParser(shortid.generate()));
 
 // cho biet cac file static nam trong folder public
 app.use(express.static('public'));
