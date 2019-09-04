@@ -1,0 +1,22 @@
+extends ../layout/common.pug
+
+block content
+	h1 
+		span Cart
+		form.ml-auto.d-flex(action="users/search", method="GET")
+			input.form-control.mr-sm-2(id="input-field", type="text", name="q", placeholder="Search", aria-label="Search")
+			button.btn.btn-outline-success.my-2.my-sm-0(type="submit") Search
+	p số loại sản phẩm  
+		span=   countCart
+
+	table.table
+		tr
+			td
+				b id
+			td
+				b Số lượng
+		each carts in cartsArr
+			tr
+				each cart in carts
+					td=cart
+		
