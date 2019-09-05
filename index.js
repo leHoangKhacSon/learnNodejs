@@ -5,6 +5,10 @@ const express = require('express');
 var cookieParser = require('cookie-parser');
 // const shortid = require('shortid');
 const csurf = require('csurf');
+var mongoose = require('mongoose');
+
+// conect database
+mongoose.connect(process.env.MONGO_URL);
 
 const userRoute = require('./routes/user.route.js');
 const authRoute = require('./routes/auth.route.js');

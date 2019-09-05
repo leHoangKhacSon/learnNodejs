@@ -14,35 +14,35 @@ block content
 					h5.card-title= product.name
 					p.card-text= product.description
 					a.btn.btn-primary(href='/cart/add/' + product.id) Add to cart
-	nav.mt-5(aria-label='Page navigation example')
-		ul.pagination
-			li.page-item
-				a.page-link(href='/products?page='+(page-1)) Previous
-			// nếu trang hiện tại bằng với phần tử đầu tiên thì thêm .active
-			if page === pageArray[0]
-				li.page-item.active
-					a.page-link(href='products?page='+pageArray[0])= pageArray[0]
-			// nếu trang hiện tại không bằng với phần tử đầu tiên
-			if page !== pageArray[0]
-				li.page-item
-					a.page-link(href='products?page='+pageArray[0])= pageArray[0]
-
-			// nếu trang hiện tại bằng với phần tử thứ 2 thì thêm .active
-			if page === pageArray[1]
-				li.page-item.active
-					a.page-link(href='products?page='+pageArray[1])= pageArray[1]
-			// nếu trang hiện tại không bằng với phần tử đầu tiên
-			if page !== pageArray[1]
-				li.page-item
-					a.page-link(href='products?page='+pageArray[1])= pageArray[1]
-
-			// nếu trang hiện tại bằng với phần tử thứ 3 thì thêm .active
-			if page === pageArray[2]
-				li.page-item.active
-					a.page-link(href='products?page='+pageArray[2])= pageArray[2]
-			// nếu trang hiện tại không bằng với phần tử đầu tiên
-			if page !== pageArray[2]
-				li.page-item
-					a.page-link(href='products?page='+pageArray[2])= pageArray[2]
-			li.page-item
-				a.page-link(href='/products?page='+(page+1)) Next
+		//	nav.mt-5(aria-label='Page navigation example')
+		//		ul.pagination
+		//			li.page-item
+		//				a.page-link(href='/products?page='+(page-1)) Previous
+		//			// nếu trang hiện tại bằng với phần tử đầu tiên thì thêm .active
+		//			if page === pageArray[0]
+		//				li.page-item.active
+		//					a.page-link(href='products?page='+pageArray[0])= pageArray[0]
+		//			// nếu trang hiện tại không bằng với phần tử đầu tiên
+		//			if page !== pageArray[0]
+		//				li.page-item
+		//					a.page-link(href='products?page='+pageArray[0])= pageArray[0]
+		//
+		//			// nếu trang hiện tại bằng với phần tử thứ 2 thì thêm .active
+		//			if page === pageArray[1]
+		//				li.page-item.active
+		//					a.page-link(href='products?page='+pageArray[1])= pageArray[1]
+		//			// nếu trang hiện tại không bằng với phần tử đầu tiên
+		//			if page !== pageArray[1]
+		//				li.page-item
+		//					a.page-link(href='products?page='+pageArray[1])= pageArray[1]
+		//
+		//			// nếu trang hiện tại bằng với phần tử thứ 3 thì thêm .active
+		//			if page === pageArray[2]
+		//				li.page-item.active
+		//					a.page-link(href='products?page='+pageArray[2])= pageArray[2]
+		//			// nếu trang hiện tại không bằng với phần tử đầu tiên
+		//			if page !== pageArray[2]
+		//				li.page-item
+		//					a.page-link(href='products?page='+pageArray[2])= pageArray[2]
+		//			li.page-item
+		//				a.page-link(href='/products?page='+(page+1)) Next
