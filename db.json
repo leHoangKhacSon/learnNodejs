@@ -630,5 +630,16 @@
       "image": "https://loremflickr.com/320/240",
       "description": "fermentum justo nec condimentum neque sapien placerat ante nulla justo aliquam quis turpis eget elit sodales scelerisque mauris sit amet"
     }
+  ],
+  "sessions": [
+    {
+      "id": "d6-LEdDP7",
+      "cart": {
+        "bfbf3d07-c3d6-4263-8f84-e62585667b35": 24,
+        "3f816d6b-8ca0-4e20-b196-6012d72e02bc": 2,
+        "577df039-db10-44e2-9db2-570adf32835a": 1,
+        "f5238ed1-3926-4087-b8ef-9cc70e20a33e": 1
+      }
+    }
   ]
 }
