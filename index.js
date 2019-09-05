@@ -4,11 +4,13 @@ console.log(process.env.SESSION_SECRET);
 const express = require('express');
 var cookieParser = require('cookie-parser');
 // const shortid = require('shortid');
+const csurf = require('csurf');
 
 const userRoute = require('./routes/user.route.js');
 const authRoute = require('./routes/auth.route.js');
 const productRoute = require('./routes/product.route.js');
 const cartRoute = require('./routes/cart.route.js');
+const transferRoute = require('./routes/transfer.route.js');
 
 const authMiddlware = require('./middlwares/auth.middlware.js');
 const sessionMiddlware = require('./middlwares/session.middlware.js'); 
@@ -38,5 +40,8 @@ app.use('/users', authMiddlware.requireAuth, userRoute);
 app.use('/auth', authRoute);
 app.use('/products', productRoute);
 app.use('/cart', cartRoute);
+app.use('/transfers', authMiddlware.requireAuth, transferRoute);
+// đặt csurf cuối cùng vì nếu khô
+app.use(csurf({ cookie: true}));
 
 app.listen(port, () => console.log('Server listening on port ' + port));

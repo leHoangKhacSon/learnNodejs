@@ -1,0 +1,17 @@
+extends ../layout/common.pug
+
+block content
+	h1 Transfer
+	
+	// ẩn input token đi
+	input(type="hidden", name="_csrf", value=csrfToken)
+	form(action="/transfers/create", method="POST")
+		.form-group
+			lable(for="account") Account
+			input#account.form-control(type="text", name="account", placeholder="Enter account")
+
+		.form-group
+			lable(for="amount") Amount
+			input#amount.form-control(type="number", name="amount", placeholder="Enter money")
+
+		button.btn.btn-primary Transfer
