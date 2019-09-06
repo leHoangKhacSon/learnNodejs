@@ -78,7 +78,8 @@ module.exports.get = async function(req, res){
 
 module.exports.postCreate = async function(req, res){
 	req.body.avatar = req.file.path.split('/').slice(1).join('/');
-	let users = new User(req.body);
-	await users.save();
+	// let users = new User(req.body);
+	// await users.save();
+	await User.create(req.body);
 	res.redirect('/users');
 };

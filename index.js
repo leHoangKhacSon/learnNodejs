@@ -8,7 +8,8 @@ const csurf = require('csurf');
 var mongoose = require('mongoose');
 
 // conect database
-mongoose.connect(process.env.MONGO_URL);
+mongoose.connect(process.env.MONGO_URL, { useNewUrlParser: true });
+mongoose.set('useFindAndModify', false);
 
 const userRoute = require('./routes/user.route.js');
 const authRoute = require('./routes/auth.route.js');
