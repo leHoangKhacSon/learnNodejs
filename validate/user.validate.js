@@ -1,6 +1,15 @@
 module.exports.postCreate = function(req, res, next){
 	// array error
 	let errors = [];
+	// kiem tra email
+	if(!req.body.email){
+		errors.push('Email is required');
+	}
+
+	// kiem tra password
+	if(!req.body.password){
+		errors.push('Password is required');
+	}
 	// kiem tra ten
 	if(!req.body.name){
 		errors.push('Name is required');

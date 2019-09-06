@@ -1,15 +1,16 @@
-const db = require('../db.js');
+const User = require('../models/user.model.js');
 const md5 = require('md5');
 
 module.exports.login = function(req, res){
 	res.render('auth/login');
 };
 
-module.exports.postLogin = function(req, res){
+module.exports.postLogin = async function(req, res){
 	// lấy email người dùng nhập
 	let email = req.body.email;
 	// tìm email trong db
-	let user = db.get("users").find({email: email}).value();
+	let user = await User.findOne({email: email});
+	// let user = db.get("users").find({email: email}).value();
 	// nếu người dùng k tồn tại
 	if(!user){
 		res.render('auth/login', {
@@ -32,7 +33,7 @@ module.exports.postLogin = function(req, res){
 	}
 	// nếu pass hết
 	// set cookie
-	res.cookie('userId', user.id, {
+	res.cookie('userId', user._id, {
 		signed: true
 	});
 

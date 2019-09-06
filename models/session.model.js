@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const Cart = require('../models/cart.model.js');
 
 let sessionSchema = mongoose.Schema({
 	sessionId: String,
