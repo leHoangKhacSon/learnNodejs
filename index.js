@@ -16,8 +16,10 @@ const authRoute = require('./routes/auth.route.js');
 const productRoute = require('./routes/product.route.js');
 const cartRoute = require('./routes/cart.route.js');
 const transferRoute = require('./routes/transfer.route.js');
+const accountRoute = require('./routes/account.route.js');
 
 const apiProductRoute = require('./api/routes/product.route.js');
+const apiUserRoute = require('./api/routes/user.route.js');
 
 const authMiddlware = require('./middlwares/auth.middlware.js');
 const sessionMiddlware = require('./middlwares/session.middlware.js'); 
@@ -33,6 +35,7 @@ app.use(express.urlencoded({ extended: true })) // for parsing application/x-www
 // app.use(cookieParser(shortid.generate());
 
 app.use('/api/products', apiProductRoute);
+app.use('/api/users', apiUserRoute);
 
 // sử dụng biến môi trường thay vì dùng shorid.generate()
 app.use(cookieParser(process.env.SESSION_SECRET));
@@ -46,6 +49,7 @@ app.get('/', function(req, res){
 	res.render('index', {title: 'home', message: 'XYZ Team'});
 });
 // truyen vao path can 
+app.use('/accounts', accountRoute);
 app.use('/users', authMiddlware.requireAuth, userRoute);
 app.use('/auth', authRoute);
 app.use('/products', productRoute);

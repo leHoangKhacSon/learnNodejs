@@ -15,8 +15,14 @@ block content
 				b id
 			td
 				b Số lượng
+			td
+				b Đơn Giá
 		each session in sessions.cart
 			tr
 				td= session.productId
 				td= session.quantity
+				td= session.price
+	
+	form(action="cart/complete", method="GET")
+		button.btn.btn-outline-success(type="submit") Complete
 		

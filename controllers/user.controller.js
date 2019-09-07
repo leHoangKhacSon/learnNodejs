@@ -59,7 +59,8 @@ module.exports.search = async function(req, res){
 	let matchedUsers = users.filter(function(user){
 		return user.name.toLowerCase().indexOf(q.toLowerCase()) !== -1;
 	});
-	res.render('users/index', {
+
+	res.render('users/info', {
 		users: matchedUsers
 	})
 };

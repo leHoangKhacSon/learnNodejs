@@ -2,9 +2,8 @@
 var express = require('express');
 const multer = require('multer');
 
-const db = require('../db');
 const validate = require('../validate/user.validate.js');
-const controller = require('../controllers/user.controller.js');
+const controller = require('../controllers/user.controller.js');	
 
 // tạo folder để lưu ảnh đã upload với đường dẫn public/uploads
 const upload = multer({dest: 'public/uploads'});

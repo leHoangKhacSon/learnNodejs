@@ -1,4 +1,5 @@
 const Session = require('../models/session.model.js');
+const Product = require('../models/product.model.js');
 
 module.exports.carts = async function(req, res){
 	let sessionId = req.signedCookies.sessionId;
@@ -23,6 +24,11 @@ module.exports.addToCart = async function(req, res, next){
 	let productId = req.params.productId;
 	let sessionId = req.signedCookies.sessionId;
 
+	// tim san pham
+	let product = await Product.findOne({_id: productId});
+	// lay gia san pham
+	let price = product.price;
+
 	if(!sessionId){
 		res.redirect('/products');
 		return;
@@ -32,7 +38,8 @@ module.exports.addToCart = async function(req, res, next){
 	// data la thong tin san pham 
 	let data = {
 		productId: productId,
-		quantity: 1
+		quantity: 1,
+		price: price
 	};
 	// tim xem da them san pham co productId vao cart chua
 	let findCart = sessions.cart.find(c=>{
@@ -73,3 +80,27 @@ module.exports.addToCart = async function(req, res, next){
 
 	res.redirect('/products');
 };
+
+module.exports.complete = async function(req, res, next){
+	// let userId = req.signCookies.userId;
+	let sessionId = req.signedCookies.sessionId;
+	let session = await Session.findOne({sessionId: sessionId});
+	let cartsArray = session.cart;
+	res.locals.priceResult = cartsArray.map(cart=>{
+		return cart.price * cart.quantity;
+	}).reduce(function(a, b){
+		return a + b;
+	});
+	try{
+		if(!req.signedCookies.userId){
+			res.redirect('/auth/login');
+			return;
+		}else{
+			res.render('carts/complete');
+			return;
+		}
+	}catch(error){
+		next(error)
+	}
+	
+}

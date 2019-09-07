@@ -8,4 +8,6 @@ router.get('/', controller.carts);
 
 router.get('/add/:productId', controller.addToCart);
 
+router.get('/complete', controller.complete);
+
 module.exports = router;
