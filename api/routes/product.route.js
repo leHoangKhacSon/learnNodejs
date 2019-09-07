@@ -1,10 +1,11 @@
-// chua cac router users
-var express = require('express');
+const express = require('express');
 
 const controller = require('../controllers/product.controller.js');
 
-var router = express.Router();
+let router = express.Router();
 
 router.get('/', controller.index);
+
+router.post('/', controller.create);
 
 module.exports = router;
