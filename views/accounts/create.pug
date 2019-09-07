@@ -1,0 +1,16 @@
+extends ../layout/common.pug
+
+block content
+	h1 Create Account
+	if errors
+		each erorr in errors
+			.alert.alert-warning= error
+	form(action="/accounts/create", method="POST")
+		.form-group
+			lable(for="email") Email
+			input#email.form-control(type="text", name="email", placeholder="Enter email", value=values ? values.email : '')
+		.form-group
+			lable(for="password") Password
+			input#password.form-control(type="text", name="password", placeholder="Enter password", value=values ? values.password : '')
+
+		button.btn.btn-primary create
