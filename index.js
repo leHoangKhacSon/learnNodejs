@@ -46,7 +46,7 @@ app.use(sessionMiddlware);
 app.use(express.static('public'));
 
 app.get('/', function(req, res){
-	res.render('index', {title: 'home', message: 'XYZ Team'});
+	res.render('index');
 });
 // truyen vao path can 
 app.use('/accounts', accountRoute);

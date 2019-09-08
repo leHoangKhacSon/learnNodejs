@@ -1,19 +1,21 @@
 html
 	head
 		link(rel="stylesheet", href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css")
+		link(rel="stylesheet", href="https://use.fontawesome.com/releases/v5.2.0/css/all.css")
 	body
 		nav(class="navbar navbar-expand-lg navbar-light bg-light")
 			a(class="navbar-brand" href="/") Home
 			div(class="collapse navbar-collapse" id="navbarSupportedContent")
 				ul(class="navbar-nav mr-auto")
 					li(class="nav-item d-flex")
+						a(class="nav-link" href="/auth/login") Login
 						a(class="nav-link" href="/users") Users
-						a(class="nav-link" href="/users") Thành Viên
-						a(class="nav-link" href="/users") Thông Tin
-						a(class="nav-link" href="/users") Album Ảnh
+						a(class="nav-link" href="/accounts/create") Create Account
 						a(class="nav-link" href="#") Logout
 						a(class="nav-link" href="/products") Products
-						a(class="nav-link" href="/cart") Cart
+						a(class="nav-link" href="#") Logout
+						a(class="nav-link" href="/cart")
+							i(class="fas fa-shopping-cart fa-2x")
 			if user
 				p= user.name
 

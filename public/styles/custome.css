@@ -8,3 +8,131 @@ h1 {
 	width: 100%;
 	overflow-x: hidden;
 }
+
+.sale {
+	color: #333;
+	position: absolute;
+	top: 150px;
+	left: 100px;
+	z-index: 1;
+	font-size: 150%;
+}
+
+.btn-clicks {
+	border: none;
+	color: #FFF;
+	margin-right: 10px;
+}
+
+.btn-clicks:hover {
+	color: #333;
+	background-color: #EEE;
+}
+
+#btn-shop-now {
+	position: absolute;
+	top: 280px;
+	left: 100px;
+	z-index: 1;
+	font-weight: 900;
+	border: none;
+	padding: 10px 30px;
+	background-color: #fa5b2f;
+}
+
+#btn-shop-now:hover {
+	background-color: #EEE;
+}
+
+#btn-shop-now:hover .link-shop {
+	color: #fa5b2f;
+}
+
+.link-shop {
+	color: #FFF;
+}
+
+.bk-head {
+	background-color: #444;
+	color: #FFF;
+}
+
+.single-service {
+	display: flex;
+	text-align: center;
+	flex-direction: column;
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+
+.single-service h5 {
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+
+.single-service p {
+	font-size: 90%;
+	font-weight: 300;
+}
+
+.box-item i {
+	padding-top: 8px;
+}
+
+.single-service .box-item {
+	height: 50px;
+	width: 50px;
+	margin-left: 40%;
+	border-radius: 50%;
+	overflow: hidden;
+	box-sizing: border-box;
+}
+
+.single-service .box-item:hover {
+	background-color: #333;
+}
+
+.single-service .box-item:hover i {
+	color: #FFF;
+}
+
+/*CSS FOOTER*/
+.footer {
+	background-color: #DDD;
+	padding-top: 10px;
+}
+
+.about-us ul{
+	list-style: none;
+	display: flex;
+}
+
+.about-us ul li {
+	padding-left: 10px;
+	padding-right: 10px;
+	transition: all .3s;
+}
+
+.about-us ul li:hover {
+	transform: scale(1.2);
+	color: #2a2ab4;
+}
+
+.contact-us ul {
+	list-style: none;
+	padding-top: 15px;
+	margin-left: -35px;
+}
+
+.contact-us ul li {
+	padding-top: 5px;
+}
+
+
+.copyright {
+	border-top: 1px solid #FFF;
+	background-color: #DDD;
+	color: #666;
+	margin-left: 30%;
+}
+

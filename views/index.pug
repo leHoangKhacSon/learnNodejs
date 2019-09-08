@@ -1,27 +1,115 @@
 html
 	head
-		title= title
+		title= shop
 		link(rel="stylesheet", href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css")
 		link(rel="stylesheet", href="../styles/custome.css")
+		link(rel="stylesheet", href="https://use.fontawesome.com/releases/v5.2.0/css/all.css")
 
 	body(style="overflow-x: hidden")
-		h1= message	
-		nav(class="navbar navbar-expand-lg navbar-light bg-light")
-			a(class="navbar-brand" href="/") Home
-			div(class="collapse navbar-collapse" id="navbarSupportedContent")
-				ul(class="navbar-nav mr-auto")
-					li(class="nav-item d-flex")
-						a(class="nav-link" href="#") Info
-						a(class="nav-link" href="/auth/login") Login
-						a(class="nav-link" href="/users") Users
-						a(class="nav-link" href="/users") Album Ảnh
-						a(class="nav-link" href="/accounts/create") Create Account
-						a(class="nav-link" href="/products") Products
-						a(class="nav-link" href="/transfers/create") Transfer
-						a(class="nav-link" href="#") Logout
-		div(class="pic-style")
-			img(src="/images/pic.jpg", class="img-fluid")
+		.header
+			.d-flex.bk-head
+				.d-flex.mt-2.pt-2
+					i.ml-3(class="fas fa-phone-volume fa-2x")
+					p.ml-2.pt-2 Support free: 033.6511.283
+				form.ml-auto.mt-3.d-flex.justify-content-end(action="users/search", method="GET")
+					input.form-control.mr-sm-2(id="input-field", type="text", name="q", placeholder="Search", aria-label="Search")
+					button.btn.btn-outline-success.my-2.my-sm-0.btn-clicks(type="submit") Search
 		
+			nav(class="navbar navbar-expand-lg navbar-light bg-light")
+				a(class="navbar-brand" href="/") Home
+				div(class="collapse navbar-collapse" id="navbarSupportedContent")
+					ul(class="navbar-nav mr-auto")
+						li(class="nav-item d-flex")
+							a(class="nav-link" href="#") Info
+							a(class="nav-link" href="/auth/login") Login
+							a(class="nav-link" href="/users") Users
+							a(class="nav-link" href="/users") Album Ảnh
+							a(class="nav-link" href="/accounts/create") Create Account
+							a(class="nav-link" href="/products") Products
+							a(class="nav-link" href="/transfers/create") Transfer
+							a(class="nav-link" href="#") Logout
+
+			#carouselExampleIndicators.carousel(data-ride="carousel")
+				.sale
+					p Sale off 30%
+					h2 New Collection 2019
+				button.btn.btn-outline-warning#btn-shop-now(type="button")
+					a.link-shop(class="nav-link" href="/products") SHOP NOW
+				ol.carousel-indicators
+					li.active(data-target="#carouselExampleIndicators", data-slide-to="0")
+					li(data-target="#carouselExampleIndicators", data-slide-to="1")
+					li(data-target="#carouselExampleIndicators", data-slide-to="2")
+				.carousel-inner
+					.carousel-item.active
+						img.d-block.w-100(src="../images/4.jpg", alt="...")
+					.carousel-item
+						img.d-block.w-100(src="../images/1.jpg", alt="...")
+					.carousel-item
+						img.d-block.w-100(src="../images/pic.jpg", alt="...")
+		.container
+			.row
+				.col-sm
+					.single-service
+						.box-item
+							i.fa-2x(class="fas fa-car")
+						h5 FREE SHIPPING
+						p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo blanditiis odio.
+				.col-sm
+					.single-service
+						.box-item
+							i.fa-2x(class="fas fa-money-check-alt")
+						h5 MONEY BACK
+						p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo blanditiis odio.
+				.col-sm
+					.single-service
+						.box-item
+							i.fa-2x(class="fas fa-headphones")
+						h5 ONLINE SUPPORT
+						p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo blanditiis odio.
+				.col-sm
+					.single-service
+						.box-item
+							i.fa-2x(class="fas fa-briefcase")
+						h5 BONUS PLUS
+						p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo blanditiis odio.
+
+		// footer
+		.footer
+			.container
+				.row.mt-5
+					.col-4
+						.about-us
+							h6 About Us
+							p Lorem ipsum dolor sit, amet cons ectetur adipis icing elit. Nobis expedita dolorem minus eaque cupid itate repud iandae mollitia veritatis sim ilique, cumque arch itecto ectetur ectetur.
+							ul
+								li 
+									i.fab.fa-facebook-square.fa-2x
+								li
+									i.fab.fa-instagram.fa-2x
+								li
+									i.fab.fa-google.fa-2x
+								li
+									i.fab.fa-twitter.fa-2x
+					.col-2
+					.col-2
+					.col-4
+						.contact-us
+							h6 Contact-Us
+							ul 
+								li
+									i.fas.fa-map-marker-alt.fa-2x 
+								li
+									i.fab.fa-facebook-f.fa-2x
+								li
+									i.far.fa-envelope.fa-2x
+								li
+									i.fas.fa-mobile-alt.fa-2x
+								li
+									i.fab.fa-instagram.fa-2x
+				.row.mt-5
+					.copyright
+						p Copyright 2019 CodersTokyo. All Rights Reserved
+
 
 			
 		
