@@ -27,7 +27,9 @@ module.exports = async function(req, res, next) {
 	// 					 .get('cart')
 	// 					 .size()
 	// 					 .value();
-	res.locals.countCart = await Session.findOne({sessionId: sessionId });
+	let countCart = await Session.findOne({sessionId: sessionId });
+	res.locals.sumCart = countCart.cart.map(c => c.quantity)
+								  .reduce((a, b) => a + b);
 	// res.locals.countCart = sessions.cart.length;
 	next();
 };
