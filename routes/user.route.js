@@ -1,5 +1,5 @@
 // chua cac router users
-var express = require('express');
+const express = require('express');
 const multer = require('multer');
 
 const validate = require('../validate/user.validate.js');
@@ -8,7 +8,7 @@ const controller = require('../controllers/user.controller.js');
 // tạo folder để lưu ảnh đã upload với đường dẫn public/uploads
 const upload = multer({dest: 'public/uploads'});
 
-var router = express.Router();
+const router = express.Router();
 
 router.get('/', controller.index);
 // router tim du lieu
