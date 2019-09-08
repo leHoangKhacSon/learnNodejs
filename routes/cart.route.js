@@ -8,6 +8,6 @@ router.get('/', controller.carts);
 
 router.get('/add/:productId', controller.addToCart);
 
-router.get('/complete', controller.complete);
+router.get('/pay', controller.complete);
 
 module.exports = router;

@@ -3,14 +3,18 @@ extends ../layout/common.pug
 block content
 	h1 Create Account
 	if errors
-		each erorr in errors
-			.alert.alert-warning= error
+		each error in errors
+			.alert.alert-danger= error
+
 	form(action="/accounts/create", method="POST")
 		.form-group
 			lable(for="email") Email
 			input#email.form-control(type="text", name="email", placeholder="Enter email", value=values ? values.email : '')
 		.form-group
 			lable(for="password") Password
-			input#password.form-control(type="text", name="password", placeholder="Enter password", value=values ? values.password : '')
+			input#password.form-control(type="password", name="password", placeholder="Enter password", value=values ? values.password : '')
+		.form-group
+			lable(for="repassword") Re-Password
+			input#repassword.form-control(type="password", name="repassword", placeholder="Re-enter password", value=values ? values.repassword : '')
 
 		button.btn.btn-primary create

@@ -83,20 +83,29 @@ module.exports.addToCart = async function(req, res, next){
 
 module.exports.complete = async function(req, res, next){
 	// let userId = req.signCookies.userId;
+	// lay sessionId
 	let sessionId = req.signedCookies.sessionId;
+	// tim collection session theo sessionId
 	let session = await Session.findOne({sessionId: sessionId});
+	// lay cac san pham trong cart cho vao mang
 	let cartsArray = session.cart;
+	// gan bien locals bang tong gia cua tat ca san pham trong cart
 	res.locals.priceResult = cartsArray.map(cart=>{
 		return cart.price * cart.quantity;
-	}).reduce(function(a, b){
-		return a + b;
-	});
+	}).reduce((a, b) => a + b);
+	res.locals.productSum = cartsArray.map(cart=>{
+		return cart.quantity;
+	}).reduce((a,b) => a + b);
+	// bat loi
 	try{
+		// neu nguoi dung chua dang nhap
 		if(!req.signedCookies.userId){
 			res.redirect('/auth/login');
 			return;
-		}else{
-			res.render('carts/complete');
+		}
+		// neu nguoi dung da dang nhap
+		else{
+			res.render('carts/pay');
 			return;
 		}
 	}catch(error){
