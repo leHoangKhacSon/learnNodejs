@@ -42,13 +42,8 @@
 const Product = require('../models/product.model');
 
 module.exports.index = async function(req, res){
-	// lay du lieu trong database
-	// Product.find().then(function(products){
-	// 	res.render('products/index', {
-	// 		products: products
-	// 	});
-	// });
 	// them await truoc promise
+	// lay tat ca products trong database
 	let products = await Product.find();
 	res.render('products/index', {
 		products: products
