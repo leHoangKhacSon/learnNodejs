@@ -42,10 +42,32 @@
 const Product = require('../models/product.model');
 
 module.exports.index = async function(req, res){
+	// lay ve trang hien tai, mac dinh bang 1
+	let page = parseInt(req.query.page) || 1;
+	// 8 san pham trong 1 trang
+	let perPage = 2;
+	let skipPage = (page - 1) * perPage;
+
+	let product = await Product.find();
+	let maxPage = Math.ceil((product.length)/perPage);
+	// tạo mảng - chứa 3 phần tử của page-item
+	let pageArray = [];
+	if(page <= 1){
+		page = 1;
+		pageArray = [1, 2, 3];
+	}else {if(page >= maxPage){
+			pageArray = [maxPage-2, maxPage-1, maxPage];
+		}else {
+			pageArray = [page-1, page, page+1];
+		}}
+
 	// them await truoc promise
-	// lay tat ca products trong database
-	let products = await Product.find();
+	// lay tat ca products trong database sau do phan trang
+	let products = await Product.find().limit(perPage).skip(skipPage);
+
 	res.render('products/index', {
-		products: products
+		products: products,
+		page: page,
+		pageArray: pageArray
 	});
 };	
