@@ -12,24 +12,29 @@ module.exports = async function(req, res, next) {
 			signed: true
 		});
 		// thêm sessions và database
-		let session = new Session({
-			sessionId: sessionId
+		let session = await Session.create({
+			sessionId: sessionId,
+			cart: []
 		})
-		await session.save();
+		// await session.save();
 		// db.get('sessions')
 		//   .push({ id: sessionId })
 		//   .write();
 	}
 
-	let sessionId = req.signedCookies.sessionId;
-	// res.locals.countCart = db.get('sessions')
-	// 					 .find({id: sessionId})
-	// 					 .get('cart')
-	// 					 .size()
-	// 					 .value();
-	let countCart = await Session.findOne({sessionId: sessionId });
-	res.locals.sumCart = countCart.cart.map(c => c.quantity)
-								  .reduce((a, b) => a + b);
+	// let sessionId = req.signedCookies.sessionId;
+	// // res.locals.countCart = db.get('sessions')
+	// // 					 .find({id: sessionId})
+	// // 					 .get('cart')
+	// // 					 .size()
+	// // 					 .value();
+	// let countCart = await Session.findOne({sessionId: sessionId });
+
+	// if(countCart.cart.length > 0){
+	// 	res.locals.sumCart = countCart.cart.map(c => c.quantity)
+	// 							  		   .reduce((a, b) => a + b);
+	// }
+
 	// res.locals.countCart = sessions.cart.length;
 	next();
 };

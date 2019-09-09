@@ -23,6 +23,7 @@ const apiUserRoute = require('./api/routes/user.route.js');
 
 const authMiddlware = require('./middlwares/auth.middlware.js');
 const sessionMiddlware = require('./middlwares/session.middlware.js'); 
+const cartMiddleware = require('./middlwares/cart.middlware.js');
 
 const app = express();
 const port = 7000;
@@ -40,7 +41,7 @@ app.use('/api/users', apiUserRoute);
 // sử dụng biến môi trường thay vì dùng shorid.generate()
 app.use(cookieParser(process.env.SESSION_SECRET));
 // set vào để kiểm tra cho mọi đường dẫn
-app.use(sessionMiddlware);
+app.use(sessionMiddlware, cartMiddleware);
 
 // cho biet cac file static nam trong folder public
 app.use(express.static('public'));
