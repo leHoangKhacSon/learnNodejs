@@ -13,6 +13,16 @@ module.exports.carts = async function(req, res){
 	// // chuyển từ object thành array 
 	// // {key: value} => [[key, value]]
 	// let cartsArr = Object.entries(carts);
+	let cartsArray = sessions.cart;
+	if(cartsArray.length > 0){
+		res.locals.priceSum = cartsArray.map(c => c.quantity * c.priceProduct)
+								.reduce((a, b) => a + b);
+	}
+
+	let productIdArray = cartsArray.map(c => c.productId);
+	let products = await Product.find();
+	res.locals.products = products.filter(product => productIdArray.indexOf(product._id) !== -1);
+
 	res.render('carts/index', {
 		// cartsArr: await sessions.cart
 		sessions: sessions
@@ -39,7 +49,7 @@ module.exports.addToCart = async function(req, res, next){
 	let data = {
 		productId: productId,
 		quantity: 1,
-		price: price
+		priceProduct: price,
 	};
 	// tim xem da them san pham co productId vao cart chua
 	let findCart = sessions.cart.find(c=>{
@@ -81,8 +91,8 @@ module.exports.addToCart = async function(req, res, next){
 	res.redirect('/products');
 };
 
-module.exports.complete = async function(req, res, next){
-	// let userId = req.signCookies.userId;
+module.exports.checkout = async function(req, res, next){
+		// let userId = req.signCookies.userId;
 	// lay sessionId
 	let sessionId = req.signedCookies.sessionId;
 	// tim collection session theo sessionId
@@ -90,12 +100,15 @@ module.exports.complete = async function(req, res, next){
 	// lay cac san pham trong cart cho vao mang
 	let cartsArray = session.cart;
 	// gan bien locals bang tong gia cua tat ca san pham trong cart
-	res.locals.priceResult = cartsArray.map(cart=>{
-		return cart.price * cart.quantity;
-	}).reduce((a, b) => a + b);
-	res.locals.productSum = cartsArray.map(cart=>{
-		return cart.quantity;
-	}).reduce((a,b) => a + b);
+	if(cartsArray.length > 0){
+		res.locals.priceResult = cartsArray.map(cart=>{
+			return cart.priceProduct * cart.quantity;
+		}).reduce((a, b) => a + b);
+		res.locals.productSum = cartsArray.map(cart=>{
+			return cart.quantity;
+		}).reduce((a,b) => a + b);
+	}
+
 	// bat loi
 	try{
 		// neu nguoi dung chua dang nhap
@@ -105,11 +118,14 @@ module.exports.complete = async function(req, res, next){
 		}
 		// neu nguoi dung da dang nhap
 		else{
-			res.render('carts/pay');
+			res.render('carts/checkout');
 			return;
 		}
 	}catch(error){
 		next(error)
 	}
-	
+}
+
+module.exports.pay = async function(req, res, next){
+	res.render('carts/pay');
 }

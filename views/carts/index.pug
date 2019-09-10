@@ -9,20 +9,45 @@ block content
 	p số loại sản phẩm  
 		span=   sumCart || 0
 
-	table.table
-		tr
-			td
-				b ProductId
-			td
-				b Quantity
-			td
-				b Price
-		each session in sessions.cart
-			tr
-				td= session.productId
-				td= session.quantity
-				td= session.price
+	.row
+		.col-sm-8
+			table.table
+				each product in products
+					tr
+						td(style="width:100px")
+							img.cart-img(src=product.image alt="")
+						td
+							.info-product
+								p= product.name
+								a.badge.badge-primary(href="#") Delete
+						td
+							.price-product
+								p= product.price
+
+		col-sm-2
+			table.table
+				each session in sessions.cart
+					tr
+						td
+							.total-quantity 
+								p=session.quantity
+		.col-sm.col-pay
+			table.table
+				tr
+					th
+						b Total Price:
+					td= priceSum
+					
+				tr
+					th
+						b ProductSum
+					td= productSum
+				tr 
+					th 
+						b Shipping
+					td
+			form(action="cart/checkout", method="GET", style="width:100%")
+				button.btn.btn-outline-success(type="submit", style="width:100%") Go to checkout
 	
-	form(action="cart/pay", method="GET")
-		button.btn.btn-outline-success(type="submit") Pay
+	
 		

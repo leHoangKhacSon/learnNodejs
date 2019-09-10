@@ -1,0 +1,109 @@
+extends ../layout/common.pug
+
+block content
+	h1 CHECKOUT FORM
+	//- table.table
+		tr
+			td
+				b PriceSum
+			td
+				b ProductSum
+		tr
+			td= productSum
+			td= priceResult
+	.row
+		.col-sm-8
+			.form
+				.form-row
+					.form-group.col-md-6
+						label(for="inputFirstName") First name
+						input.form-control#inputFirstName(type="text", placeholder="First name")
+					.form-group.col-md-6
+						label(for="inputLastName") Last name
+						input.form-control#inputLastName(type="text", placeholder="Last name")
+				.form-group
+						label(for="inputPhoneNumber") Phone number
+						input.form-control#inputPhoneNumber(type="text", placeholder="Phone number")
+				.form-group
+						label(for="inputAddress") Address
+						input.form-control#inputAddress(type="text", placeholder="Address")
+				.form-row
+					.form-group.col-md-6
+						label(for="inputCity") City
+						select.form-control#inputCity(type="text")
+							option(selected) Hà Nội
+							option Vũng Tàu
+							option Hồ Chí Minh
+							option Đà Nẵng
+							option Nghệ An
+							option Đà Lạt
+							option ...
+					.form-group.col-md-4
+						label(for="inputCouty") Couty
+						select.form-control#inputCouty(type="text")
+							option(selected)
+							option 
+					.form-group.col-md-2
+						label(for="inputZip") Zip
+						input.form-control#inputZip(type="text")
+			.col-sm
+				.form-check
+					input.form-check-input(type="checkbox", id="gridCheck1")
+					label.form-check-label(for="gridCheck1") Shipping address is the same as my billing address
+
+			.col-sm
+				.form-check
+					input.form-check-input(type="checkbox", id="gridCheck2")
+					label.form-check-label(for="gridCheck2") Save this information for next time
+
+			h2.mt-5.mb-3 PAYMENT
+			.form-check
+				input.form-check-input(type="radio", name="gridRadios", id="gridRadios1", value="option1")
+				label.form-check-label(for="gridRadios1") Credit Card
+			.form-check
+				input.form-check-input(type="radio", name="gridRadios", id="gridRadios2", value="option2")
+				label.form-check-label(for="gridRadios2") Debit Card
+			.form-check
+				input.form-check-input(type="radio", name="gridRadios", id="gridRadios3", value="option3")
+				label.form-check-label(for="gridRadios3") Paypal
+
+			.form-row.mt-3
+				.form-group.col-md-6
+					label(for="inputName") Name on card
+					input.form-control#inputName(type="text", placeholder="Name on card")
+				.form-group.col-md-6
+					label(for="inputNumber") Credit card number
+					input.form-control#inputNumber(type="text", placeholder="Credit card number")
+			.form-row
+				.form-group.col-md-3
+					label(for="inputExpiration") Expiration
+					input.form-control#inputFirstName(type="text", placeholder="First name")
+				.form-group.col-md-3
+					label(for="inputCVV") CVV
+					input.form-control#inputLastName(type="text", placeholder="Last name")
+			form.mt-3.mb-3(action="pay", method="GET", style="width:100%")
+				button.btn.btn-outline-success(type="submit", style="width:100%") Continue to checkout	
+
+
+		.col-sm-4
+			table.table
+				tr
+					th
+						b Total Price:
+					td= priceSum
+						
+				tr
+					th
+						b ProductSum
+					td= productSum
+				tr 
+					th 
+						b Shipping
+					td
+				tr 
+					td
+						input.form-control#inputCode(type="text", placeholder="Code")
+					th 
+						form.mt-3.mb-3(action="#", method="GET", style="width:100%")
+							button.btn.btn-outline-success(type="submit", style="width:100%") Code
+

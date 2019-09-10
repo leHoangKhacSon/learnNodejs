@@ -11,7 +11,7 @@ html
 				.d-flex.mt-2.pt-2
 					i.ml-3(class="fas fa-phone-volume fa-2x")
 					p.ml-2.pt-2 Support free: 033.6511.283
-				form.ml-auto.mt-3.d-flex.justify-content-end(action="users/search", method="GET")
+				form.ml-auto.mt-3.d-flex.justify-content-end(action="#", method="GET")
 					input.form-control.mr-sm-2(id="input-field", type="text", name="q", placeholder="Search", aria-label="Search")
 					button.btn.btn-outline-success.my-2.my-sm-0.btn-clicks(type="submit") Search
 		
@@ -29,7 +29,7 @@ html
 							a(class="nav-link" href="/transfers/create") Transfer
 							a(class="nav-link" href="#") Logout
 
-			#carouselExampleIndicators.carousel(data-ride="carousel")
+			#carouselExampleIndicators.carousel.slide(data-ride="carousel")
 				.sale
 					p Sale off 30%
 					h2 New Collection 2019
