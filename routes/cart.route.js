@@ -1,5 +1,6 @@
 const express = require('express');
 
+const validate = require('../validate/checkout.validate.js');
 const controller = require('../controllers/cart.controller.js');
 
 const router = express.Router();
@@ -12,7 +13,7 @@ router.get('/checkout', controller.checkout);
 
 router.get('/pay', controller.pay);
 
-router.post('/checkout', controller.postCheckout);
+router.post('/checkout', validate.checkout, controller.postCheckout);
 
 router.post('/checkcode', controller.checkcode);
 

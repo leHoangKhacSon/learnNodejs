@@ -2,6 +2,9 @@ extends ../layout/common.pug
 
 block content
 	h1 CHECKOUT FORM
+	if errors 
+		each error in errors 
+			.alert.alert-danger= error
 	//- table.table
 		tr
 			td
@@ -18,16 +21,16 @@ block content
 					.form-row
 						.form-group.col-md-6
 							label(for="inputFirstName") First name
-							input.form-control#inputFirstName(type="text", placeholder="First name")
+							input.form-control#inputFirstName(type="text", placeholder="First name", name="firstName", value=values ? values.firstName : '')
 						.form-group.col-md-6
 							label(for="inputLastName") Last name
-							input.form-control#inputLastName(type="text", placeholder="Last name")
+							input.form-control#inputLastName(type="text", placeholder="Last name", name="lastName", value=values ? values.lastName : '')
 					.form-group
 							label(for="inputPhoneNumber") Phone number
-							input.form-control#inputPhoneNumber(type="text", placeholder="Phone number")
+							input.form-control#inputPhoneNumber(type="text", placeholder="Phone number" name="phoneNumber", value=values ? values.phoneNumber : '')
 					.form-group
 							label(for="inputAddress") Address
-							input.form-control#inputAddress(type="text", placeholder="Address")
+							input.form-control#inputAddress(type="text", placeholder="Address", name="address", value=values ? values.address : '')
 					.form-row
 						.form-group.col-md-6
 							label(for="inputCity") City
@@ -46,7 +49,7 @@ block content
 								option 
 						.form-group.col-md-2
 							label(for="inputZip") Zip
-							input.form-control#inputZip(type="text")
+							input.form-control#inputZip(type="text", name="zip", value=values ? values.zip : '')
 				.col-sm
 					.form-check
 						input.form-check-input(type="checkbox", id="gridCheck1")
