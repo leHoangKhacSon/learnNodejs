@@ -12,4 +12,8 @@ router.get('/checkout', controller.checkout);
 
 router.get('/pay', controller.pay);
 
+router.post('/checkout', controller.postCheckout);
+
+router.post('/checkcode', controller.checkcode);
+
 module.exports = router;
