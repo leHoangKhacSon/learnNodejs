@@ -71,3 +71,14 @@ module.exports.index = async function(req, res){
 		pageArray: pageArray
 	});
 };	
+
+module.exports.search = async function(req, res, next){
+	let q = req.query.q;
+	let productsArray = await Product.find();
+	let products = productsArray.filter(function(product){
+		return product.name.toLowerCase().indexOf(q.toLowerCase()) !== -1;
+	});
+	res.render('products/search', {
+		products: products
+	})
+}

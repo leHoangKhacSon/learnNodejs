@@ -3,7 +3,7 @@ extends ../layout/common.pug
 block content
 	h1 
 		span Products
-		form.ml-auto.d-flex(action="users/search", method="GET")
+		form.ml-auto.d-flex(action="products/search", method="GET")
 			input.form-control.mr-sm-2(id="input-field", type="text", name="q", placeholder="Search", aria-label="Search")
 			button.btn.btn-outline-success.my-2.my-sm-0(type="submit") Search
 	.row
