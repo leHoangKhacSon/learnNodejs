@@ -8,7 +8,7 @@ module.exports.checkout = async function(req, res, next){
 	// kiem tra Last name
 	if(!req.body.lastName){
 		errors.push('Last name is required');
-	}
+	} 
 	// kiem tra Phone number
 	if(!req.body.phoneNumber){
 		errors.push('Phone number is required');
