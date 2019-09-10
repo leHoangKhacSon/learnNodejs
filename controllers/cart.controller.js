@@ -1,5 +1,6 @@
 const Session = require('../models/session.model.js');
 const Product = require('../models/product.model.js');
+const shortid = require('shortid');
 
 module.exports.carts = async function(req, res){
 	let sessionId = req.signedCookies.sessionId;
@@ -127,5 +128,39 @@ module.exports.checkout = async function(req, res, next){
 }
 
 module.exports.pay = async function(req, res, next){
+	// // lay ma code nguoi dung nhap vao
+	// let code = req.body.checkCode;
+	// // kiem tra ma code
+	// let check = await Session.find({checkCode: code})
+	// // neu dung hoan cho phep Pay now
+	// if(!check){
+	// 	res.dedirect('/cart/checkout');
+	// }
+	// // neu khong dung thi nhap lai
+	res.render('carts/pay');
+}
+
+module.exports.checkcode = async function(req, res, next){
+	// tao ma code moi gui ve phone nguoi dung
+	let checkCode = shortid.generate();
+	// lay id sessions nguoi dung hien tai
+	let sessionId = req.signedCookies.sessionId;
+	// them ma code vao database
+	let Code = await Session.findOneAndUpdate({sessionId: sessionId}, {checkCode: checkCode});
+	// tiep tuc checkout
+	res.redirect('/cart/checkout');
+}
+
+module.exports.postCheckout = async function(req, res, next){
+	// lay ma nguoi dung nhap vao
+	let checkCode = req.body.checkCode;
+	// tim trong database
+	let check = await Session.findOne({checkCode: checkCode});
+	// kiem tra xem ton tai hay khong
+	if(!check){
+		res.redirect('/cart/checkout');
+		return;
+	}
+	// neu ton tai chuyen sang trang pay
 	res.render('carts/pay');
 }
