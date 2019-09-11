@@ -1,3 +1,28 @@
+/*CART*/
+nav .items {
+	margin-left: 800px;
+}
+
+nav .items a {
+	margin-left: 10px;
+	font-weight: 700;
+}
+
+nav .items .cart {
+	position: relative;
+}
+
+nav .items .cart span {
+	position: absolute;
+	color: #FFF;
+	font-weight: 800;
+	right: 0px;
+	top: 0px;
+	background-color: red;
+	padding: 0px 7px;
+	border-radius: 50%;
+}
+
 .col-pay {
 	background-color: #EEE;
 	height: 200px;
@@ -30,5 +55,11 @@
 }
 
 .total-quantity {
+	/*background-color: red;*/
+}
 
+.total-quantity input {
+	width: 50%;
+	border: none;
+	margin: 31px 5px;
 }

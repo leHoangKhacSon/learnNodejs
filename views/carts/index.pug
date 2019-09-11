@@ -3,19 +3,17 @@ extends ../layout/common.pug
 block content
 	h1 
 		span Cart 
-		form.ml-auto.d-flex(action="users/search", method="GET")
-			input.form-control.mr-sm-2(id="input-field", type="text", name="q", placeholder="Search", aria-label="Search")
-			button.btn.btn-outline-success.my-2.my-sm-0(type="submit") Search
+
 	p số loại sản phẩm  
 		span=   sumCart || 0
 
 	.row
-		.col-sm-8
+		.col-sm-6
 			table.table
 				each product in products
 					tr
 						td(style="width:100px")
-							img.cart-img(src=product.image alt="")
+							img.cart-img(src=product.image, alt="")
 						td
 							.info-product
 								p= product.name
@@ -24,13 +22,15 @@ block content
 							.price-product
 								p= product.price
 
-		col-sm-2
+		.col-sm-2
 			table.table
 				each session in sessions.cart
-					tr
-						td
-							.total-quantity 
-								p=session.quantity
+					tr.total-quantity 
+						// td
+						// 	.total-quantity 
+						// 		p=session.quantity
+						td(data-th='Quantity')
+							input.form-control.text-center(value=session.quantity, type='number')
 		.col-sm.col-pay
 			table.table
 				tr

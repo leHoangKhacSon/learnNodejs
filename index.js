@@ -24,6 +24,7 @@ const apiUserRoute = require('./api/routes/user.route.js');
 const authMiddlware = require('./middlwares/auth.middlware.js');
 const sessionMiddlware = require('./middlwares/session.middlware.js'); 
 const cartMiddleware = require('./middlwares/cart.middlware.js');
+const userMiddleware = require('./middlwares/user.middleware.js');
 
 const app = express();
 const port = 7000;
@@ -49,6 +50,8 @@ app.use(express.static('public'));
 app.get('/', function(req, res){
 	res.render('index');
 });
+
+app.use(userMiddleware);
 // truyen vao path can 
 app.use('/accounts', accountRoute);
 app.use('/users', authMiddlware.requireAuth, userRoute);

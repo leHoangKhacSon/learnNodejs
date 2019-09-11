@@ -8,26 +8,24 @@ html
 	body(style="overflow-x: hidden")
 		.header
 			.d-flex.bk-head
-				.d-flex.mt-2.pt-2
+				.d-flex.mt-2.pt-2.support
 					i.ml-3(class="fas fa-phone-volume fa-2x")
 					p.ml-2.pt-2 Support free: 033.6511.283
-				form.ml-auto.mt-3.d-flex.justify-content-end(action="#", method="GET")
-					input.form-control.mr-sm-2(id="input-field", type="text", name="q", placeholder="Search", aria-label="Search")
-					button.btn.btn-outline-success.my-2.my-sm-0.btn-clicks(type="submit") Search
 		
 			nav(class="navbar navbar-expand-lg navbar-light bg-light")
-				a(class="navbar-brand" href="/") Home
-				div(class="collapse navbar-collapse" id="navbarSupportedContent")
+				a.logo(class="navbar-brand" href="/") Home
+				div.items(class="collapse navbar-collapse" id="navbarSupportedContent")
 					ul(class="navbar-nav mr-auto")
 						li(class="nav-item d-flex")
-							a(class="nav-link" href="#") Info
 							a(class="nav-link" href="/auth/login") Login
-							a(class="nav-link" href="/users") Users
-							a(class="nav-link" href="/users") Album Ảnh
+							// a(class="nav-link" href="/users") Users
 							a(class="nav-link" href="/accounts/create") Create Account
 							a(class="nav-link" href="/products") Products
-							a(class="nav-link" href="/transfers/create") Transfer
-							a(class="nav-link" href="#") Logout
+							// a(class="nav-link" href="/transfers/create") Transfer
+							// a(class="nav-link" href="#") Logout
+							a.cart(class="nav-link" href="/cart")
+								i(class="fas fa-shopping-cart fa-2x")
+								span= sumCart || ''
 
 			#carouselExampleIndicators.carousel.slide(data-ride="carousel")
 				.sale
