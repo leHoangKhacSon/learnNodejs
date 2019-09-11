@@ -9,7 +9,7 @@ block content
 	.row
 		each product in products
 			.card.col-sm-3
-				img.card-img-top(src='#', alt="...")
+				img.card-img-top(src=product.image, alt="...")
 				.card-body
 					h5.card-title= product.name
 					p.card-text= product.description
