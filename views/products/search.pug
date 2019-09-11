@@ -3,7 +3,7 @@ extends ../layout/common.pug
 block content
 	h1 
 		span Products
-		form.ml-auto.d-flex(action="prodcuts/search", method="GET")
+		form.ml-auto.d-flex(action="", method="GET")
 			input.form-control.mr-sm-2(id="input-field", type="text", name="q", placeholder="Search", aria-label="Search")
 			button.btn.btn-outline-success.my-2.my-sm-0(type="submit") Search
 	.row
@@ -14,4 +14,33 @@ block content
 					h5.card-title= product.name
 					p.card-text= product.description
 					a.btn.btn-primary(href='/cart/add/' + product.id) Add to cart
-
+	nav.mt-5(aria-label='Page navigation example')
+		ul.pagination
+			li.page-item
+				a.page-link(href='/products/search?page='+(page-1)+'&'+qr) Previous
+			// nếu trang hiện tại bằng với phần tử đầu tiên thì thêm .active
+			if page === pageArray[0]
+				li.page-item.active
+					a.page-link(href='products/search?page='+pageArray[0]+'&'+qr)= pageArray[0]
+			// nếu trang hiện tại không bằng với phần tử đầu tiên
+			if page !== pageArray[0]
+				li.page-item
+					a.page-link(href='products/search?page='+pageArray[0]+'&'+qr)= pageArray[0]
+			// nếu trang hiện tại bằng với phần tử thứ 2 thì thêm .active
+			if page === pageArray[1]
+				li.page-item.active
+					a.page-link(href='products/search?page='+pageArray[1]+'&'+qr)= pageArray[1]
+			// nếu trang hiện tại không bằng với phần tử thứ 2
+			if page !== pageArray[1]
+				li.page-item
+					a.page-link(href='products/search?page='+pageArray[1]+'&'+qr)= pageArray[1]
+			// nếu trang hiện tại bằng với phần tử thứ 3 thì thêm .active
+			if page === pageArray[2]
+				li.page-item.active
+					a.page-link(href='products/search?page='+pageArray[2]+'&'+qr)= pageArray[2]
+			// nếu trang hiện tại không bằng với phần tử thứ 3
+			if page !== pageArray[2]
+				li.page-item
+					a.page-link(href='products/search?page='+pageArray[2]+'&'+qr)= pageArray[2]
+			li.page-item
+				a.page-link(href='/products/search?page='+(page+1)+'&'+qr) Next	

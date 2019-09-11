@@ -45,7 +45,7 @@ module.exports.index = async function(req, res){
 	// lay ve trang hien tai, mac dinh bang 1
 	let page = parseInt(req.query.page) || 1;
 	// 8 san pham trong 1 trang
-	let perPage = 2;
+	let perPage = 4;
 	let skipPage = (page - 1) * perPage;
 
 	let product = await Product.find();
@@ -73,12 +73,36 @@ module.exports.index = async function(req, res){
 };	
 
 module.exports.search = async function(req, res, next){
+	// lay ve trang hien tai, mac dinh bang 1
+	let page = parseInt(req.query.page) || 1;
 	let q = req.query.q;
+	let qr = 'q=' + q;
+	// 8 san pham trong 1 trang
+	let perPage = 8;
+	let start = (page - 1) * perPage;
+	let end = page * perPage;
+	
 	let productsArray = await Product.find();
 	let products = productsArray.filter(function(product){
 		return product.name.toLowerCase().indexOf(q.toLowerCase()) !== -1;
 	});
+
+	let maxPage = Math.ceil((products.length)/perPage);
+	// tạo mảng - chứa 3 phần tử của page-item
+	let pageArray = [];
+	if(page <= 1 || maxPage < 3){
+		page = 1;
+		pageArray = [1, 2, 3];
+	}else {if(page >= maxPage){
+			pageArray = [maxPage-2, maxPage-1, maxPage];
+		}else {
+			pageArray = [page-1, page, page+1];
+		}}
+
 	res.render('products/search', {
-		products: products
-	})
+		products: products.slice(start, end),
+		page: page,
+		pageArray: pageArray,
+		qr: qr
+	});
 }
