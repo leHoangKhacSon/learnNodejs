@@ -73,3 +73,29 @@ module.exports.putProduct = async function(req, res, next){
 	}
 }
 
+module.exports.deleteProduct = async function(req, res, next){
+	let _id = req.body._id;
+	let product = await Product.findOne({_id: _id});
+	if(product){
+		let data = await Product.findByIdAndDelete({_id: _id});
+		if(data){
+			res.json({
+				result: "delete",
+				data: data,
+				message: "delete success"
+			});
+		}else {
+			res.json({
+				result: "failure",
+				data: "",
+				messsage: "delete failure"
+			})
+		}
+	}
+	else {
+		res.json({
+			messsage: "not found"
+		})
+	}
+}
+
