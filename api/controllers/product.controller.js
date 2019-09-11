@@ -30,12 +30,7 @@ module.exports.putProduct = async function(req, res, next){
 		// tim xem da co san pham hay chua
 		let product = await Product.findOne({_id: _id});
 		if(product){
-			let newProduct = await Product.findByIdAndUpdate({_id: _id}, {
-				name: req.body.name,
-				price: req.body.price,
-				image: req.body.image,
-				description: req.body.description
-			});
+			let newProduct = await Product.findOneAndReplace({_id: _id}, req.body);
 			if(newProduct){
 				res.json({
 					result: "edit",
@@ -52,12 +47,7 @@ module.exports.putProduct = async function(req, res, next){
 			
 		} 
 		else {
-			let newProduct = await Product.create({
-				name: req.body.name,
-				price: req.body.price,
-				image: req.body.image,
-				description: req.body.description
-			});
+			let newProduct = await Product.create(req.body);
 
 			if(newProduct){
 				res.json({
@@ -80,7 +70,8 @@ module.exports.putProduct = async function(req, res, next){
 			res.json({
 				result: "error",
 				data: "",
-				message: "id not converts to objectId hecxa. create product failure"
+				message: "id not converts to objectId hecxa. create product failure",
+				error: error
 			})
 		);
 	}
@@ -116,7 +107,49 @@ module.exports.deleteProduct = async function(req, res, next){
 			res.json({
 				result: "error",
 				require: "please re-enter id or resource",
-				message: "id not converts to objectId hecxa. create product failure"
+				message: "id not converts to objectId hecxa. create product failure",
+				error: error
+			})
+		);
+	}
+}
+
+module.exports.patchProduct = async function(req, res, next){
+	// kiem tra loi id nguoi dung nhap vao co dung ma hexa hay khong
+	try{
+		// lay id nguoi dung nhap vao tren url
+		let _id = req.params.id;
+		// tim product bang id
+		let product = await Product.findOne({_id: _id});
+		if(product){
+			let newProduct = await Product.findByIdAndUpdate({_id: _id}, req.body);
+			if(newProduct){
+				res.json({
+					result: "ok",
+					data: newProduct,
+					messsage: "update product success"
+				})
+			}else {
+				res.json({
+					result: "failure",
+					data: "",
+					messsage: "update product failure"
+				})
+			}
+		} else {
+			res.json({
+				message: "not found"
+			});
+		}
+	}
+	// thong bao loi khong chuyen qua duoc
+	catch(error){
+		next(
+			res.json({
+				result: "error",
+				require: "please re-enter id",
+				message: "id not convert to ObjectId hexa. Patch failure",
+				error: error
 			})
 		);
 	}
