@@ -1,0 +1,29 @@
+extends ../layout/common.pug
+
+block content
+	h1 Product details
+
+	.row.d-flex.justify-content-center
+		.card.col-sm-3
+			img.card-img-top(src=product.image, alt="...")
+			.card-body
+				h5.card-title= product.name
+				p.card-text= product.description
+				a.btn.btn-primary(href='/cart/add/' + product.id) Add to cart
+		.col-sm-3.col-pay
+			table.table
+				tr
+					th
+						b Total Price:
+					td= priceSum
+					
+				tr
+					th
+						b ProductSum
+					td= productSum
+				tr 
+					th 
+						b Shipping
+					td
+			form(action="/cart/checkout", method="GET", style="width:100%")
+				button.btn.btn-outline-success(type="submit", style="width:100%") Go to checkout

@@ -2,8 +2,13 @@ html
 	head
 		title= shop
 		link(rel="stylesheet", href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css")
+		link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css", integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm", crossorigin="anonymous")
 		link(rel="stylesheet", href="../styles/custome.css")
 		link(rel="stylesheet", href="https://use.fontawesome.com/releases/v5.2.0/css/all.css")
+		script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js")
+		script(src="https://code.jquery.com/jquery-3.2.1.slim.min.js", integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN", crossorigin="anonymous")
+		script(src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js", integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q", crossorigin="anonymous")
+		script(src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js", integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl", crossorigin="anonymous")
 
 	body(style="overflow-x: hidden")
 		.header
@@ -17,33 +22,45 @@ html
 				div.items(class="collapse navbar-collapse" id="navbarSupportedContent")
 					ul(class="navbar-nav mr-auto")
 						li(class="nav-item d-flex")
-							a(class="nav-link" href="/auth/login") Login
+							if !user
+								a(class="nav-link" href="/auth/login") Login
 							// a(class="nav-link" href="/users") Users
-							a(class="nav-link" href="/accounts/create") Create Account
+							if !user
+								a(class="nav-link" href="/accounts/create") Create Account
+							if user
+								p(style="font-size: 12px")= user.name
 							a(class="nav-link" href="/products") Products
 							// a(class="nav-link" href="/transfers/create") Transfer
 							// a(class="nav-link" href="#") Logout
 							a.cart(class="nav-link" href="/cart")
 								i(class="fas fa-shopping-cart fa-2x")
 								span= sumCart || ''
+							if user
+								a(class="nav-link" href="#") Logout
 
-			#carouselExampleIndicators.carousel.slide(data-ride="carousel")
+			#carouselExampleIndicators.carousel.slide(data-ride="carousel", data-interval="2000")
 				.sale
 					p Sale off 30%
 					h2 New Collection 2019
 				button.btn.btn-outline-warning#btn-shop-now(type="button")
 					a.link-shop(class="nav-link" href="/products") SHOP NOW
-				ol.carousel-indicators
-					li.active(data-target="#carouselExampleIndicators", data-slide-to="0")
-					li(data-target="#carouselExampleIndicators", data-slide-to="1")
-					li(data-target="#carouselExampleIndicators", data-slide-to="2")
-				.carousel-inner
+				// ol.carousel-indicators
+				// 	li.active(data-target="#carouselExampleIndicators", data-slide-to="0")
+				// 	li(data-target="#carouselExampleIndicators", data-slide-to="1")
+				// 	li(data-target="#carouselExampleIndicators", data-slide-to="2")
+				.carousel-inner(role="listbox")
 					.carousel-item.active
-						img.d-block.w-100(src="../images/4.jpg", alt="...")
+						img.d-block.w-100(src="../images/6.jpg", alt="...")
 					.carousel-item
-						img.d-block.w-100(src="../images/1.jpg", alt="...")
+						img.d-block.w-100(src="../images/7.jpg", alt="...")
 					.carousel-item
-						img.d-block.w-100(src="../images/pic.jpg", alt="...")
+						img.d-block.w-100(src="../images/5.jpg", alt="...")
+				a.left.carousel-control(href='#carouselExampleIndicators', role='button', data-slide='prev')
+					span.carousel-control-prev-icon(aria-hidden='true')
+					span.sr-only Previous
+				a.right.carousel-control(href='#carouselExampleIndicators', role='button', data-slide='next')
+					span.carousel-control-next-icon(aria-hidden='true')
+					span.sr-only Next
 		.container
 			.row
 				.col-sm
@@ -107,6 +124,17 @@ html
 				.row.mt-5
 					.copyright
 						p Copyright 2019 CodersTokyo. All Rights Reserved
+
+		script(type="text/javascript").
+			$(document).ready(function(){
+				$('.carousel').carousel(interval: 2000);
+			});
+
+ 
+
+
+  				
+  			
 
 
 			
