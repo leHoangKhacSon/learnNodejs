@@ -102,7 +102,7 @@ module.exports.checkout = async function(req, res, next){
 	let cartsArray = session.cart;
 	// gan bien locals bang tong gia cua tat ca san pham trong cart
 	if(cartsArray.length > 0){
-		res.locals.priceResult = cartsArray.map(cart=>{
+		res.locals.priceSum = cartsArray.map(cart=>{
 			return cart.priceProduct * cart.quantity;
 		}).reduce((a, b) => a + b);
 		res.locals.productSum = cartsArray.map(cart=>{

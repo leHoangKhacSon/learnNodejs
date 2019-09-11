@@ -40,6 +40,7 @@
 // };
 
 const Product = require('../models/product.model');
+const Session = require('../models/session.model.js');
 
 module.exports.index = async function(req, res){
 	// lay ve trang hien tai, mac dinh bang 1
@@ -104,5 +105,29 @@ module.exports.search = async function(req, res, next){
 		page: page,
 		pageArray: pageArray,
 		qr: qr
+	});
+}
+
+module.exports.details = async function(req, res, next){
+	// lay id san pham tren url
+	let _id = req.params.id;
+	// lay sessionId
+	let sessionId = req.signedCookies.sessionId;
+
+	let sessions = await Session.findOne({sessionId: sessionId});
+	// lay cac san pham dang co trong gio hang
+	let cartsArray = sessions.cart;
+	if(cartsArray.length > 0){
+		res.locals.priceSum = cartsArray.map(cart => cart.priceProduct * cart.quantity)
+										.reduce((a, b) => a + b);
+		res.locals.productSum = cartsArray.map(cart => cart.quantity)
+										  .reduce((a, b) => a + b);
+	}
+
+
+	// tim san pham trong product collection
+	let product = await Product.findOne({_id: _id});
+	res.render('products/details', {
+		product: product
 	});
 }

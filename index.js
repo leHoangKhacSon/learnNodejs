@@ -47,11 +47,11 @@ app.use(sessionMiddlware, cartMiddleware);
 // cho biet cac file static nam trong folder public
 app.use(express.static('public'));
 
+app.use(userMiddleware);
 app.get('/', function(req, res){
 	res.render('index');
 });
 
-app.use(userMiddleware);
 // truyen vao path can 
 app.use('/accounts', accountRoute);
 app.use('/users', authMiddlware.requireAuth, userRoute);
