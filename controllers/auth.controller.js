@@ -38,7 +38,7 @@ module.exports.postLogin = async function(req, res, next){
 			signed: true
 		});
 
-		res.redirect('/users');
+		res.redirect('/');
 	} catch (error) {
 		next(error);
 	}

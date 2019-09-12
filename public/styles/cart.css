@@ -1,7 +1,7 @@
 /*CART*/
-nav .items {
+/* nav .items {
 	margin-left: 800px;
-}
+} */
 
 nav .items a {
 	margin-left: 10px;
@@ -16,7 +16,7 @@ nav .items .cart span {
 	position: absolute;
 	color: #FFF;
 	font-weight: 800;
-	right: 0px;
+	left: 25px;
 	top: 0px;
 	background-color: red;
 	padding: 0px 7px;

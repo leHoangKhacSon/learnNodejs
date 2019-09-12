@@ -8,6 +8,7 @@ h1 {
 	width: 100%;
 	overflow-x: hidden;
 }
+/*  */
 
 .sale {
 	color: #333;
@@ -16,17 +17,6 @@ h1 {
 	left: 100px;
 	z-index: 1;
 	font-size: 150%;
-}
-
-.btn-clicks {
-	border: none;
-	color: #FFF;
-	margin-right: 10px;
-}
-
-.btn-clicks:hover {
-	color: #333;
-	background-color: #EEE;
 }
 
 #btn-shop-now {
@@ -51,6 +41,18 @@ h1 {
 .link-shop {
 	color: #FFF;
 }
+/*  */
+
+.btn-clicks {
+	border: none;
+	color: #FFF;
+	margin-right: 10px;
+}
+
+.btn-clicks:hover {
+	color: #333;
+	background-color: #EEE;
+}
 
 .bk-head {
 	background-color: #444;
@@ -74,7 +76,7 @@ nav .items a {
 	font-weight: 700;
 }
 
-nav .items .cart {
+nav .items .cart{
 	position: relative;
 }
 
@@ -82,7 +84,7 @@ nav .items .cart span {
 	position: absolute;
 	color: #FFF;
 	font-weight: 800;
-	right: 0px;
+	left: 25px;
 	top: 0px;
 	background-color: red;
 	padding: 0px 7px;

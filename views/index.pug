@@ -12,20 +12,6 @@ html
 
 	body(style="overflow-x: hidden")
 		.header
-			nav.navbar.navbar-expand-lg.navbar-light.navbar-light
-				.items.collapse.navbar-collapse#navbarNav
-					ul.navbar-nav
-						if !user
-							li.nav-item
-								a(class="nav-link" href="/auth/login") Login
-							li.nav-item
-								a(class="nav-link" href="/accounts/create") Create Account
-						if user
-							li.nav-item
-								p(style="font-size: 12px")= user.name
-							li.nav-item
-								a(class="nav-link" href="#") Logout
-
 			.d-flex.bk-head
 				.d-flex.mt-2.pt-2.support
 					i.ml-3(class="fas fa-phone-volume fa-2x")
@@ -48,11 +34,19 @@ html
 							a.nav-link(href="#") Blog
 						li.nav-item
 							a.nav-link(href="#") Contact
-						li.nav-item
-							a.cart(class="nav-link" href="/cart")
-								i(class="fas fa-shopping-cart fa-2x")
-								span= sumCart || ''
-							
+						if !user
+							li.nav-item
+								a(class="nav-link" href="/auth/login") Login
+							li.nav-item
+								a(class="nav-link" href="/accounts/create") Create Account		
+						a.cart(class="nav-link" href="/cart")
+							i(class="fas fa-shopping-cart fa-2x")
+							span= sumCart || ''
+						if user
+							//- li.nav-item
+							//- 	p.mt-2(style="font-size: 14px")= user.name
+							li.nav-item
+								a(class="nav-link" href="#") Logout
 
 			#carouselExampleIndicators.carousel.slide(data-ride="carousel", data-interval="2000")
 				.sale
@@ -103,6 +97,29 @@ html
 							i.fa-2x(class="fas fa-briefcase")
 						h5 BONUS PLUS
 						p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo blanditiis odio.
+			.row.pb-5.pt-5
+				.col-sm
+					.card
+						img.card-img-top(src="../images/pic1.jpg", alt="...")
+				.col-sm
+					.card
+						img.card-img-top(src="../images/pic2.jpg", alt="...")
+				.col-sm
+					.card
+						img.card-img-top(src="../images/pic3.jpg", alt="...")
+			.row.pb-5.pt-5
+				.col-sm
+					.card
+						img.card-img-top(src="../images/p1.jpg", alt="...")
+				.col-sm
+					.card
+						img.card-img-top(src="../images/p2.jpg", alt="...")
+				.col-sm
+					.card
+						img.card-img-top(src="../images/p3.jpg", alt="...")
+				.col-sm
+					.card
+						img.card-img-top(src="../images/p4.jpg", alt="...")
 
 		// footer
 		.footer
