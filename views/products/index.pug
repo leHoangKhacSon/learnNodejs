@@ -8,12 +8,13 @@ block content
 			button.btn.btn-outline-success.my-2.my-sm-0(type="submit") Search
 	.row
 		each product in products
-			.card.col-sm-3
-				img.card-img-top(src=product.image, alt="...")
-				.card-body
-					h5.card-title= product.name
-					//- p.card-text= product.description
-					a.btn.btn-primary(href='/products/' + product.id) Details
+			.col-sm-3
+				.card
+					img.card-img-top(src=product.image, alt="...")
+					.card-body
+						p.card-title(style="font-size: 15px")= product.name
+						//- p.card-text= product.description
+						a.btn.btn-primary(href='/products/' + product.id) Details
 	nav.mt-5(aria-label='Page navigation example')
 		ul.pagination
 			li.page-item

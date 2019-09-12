@@ -12,31 +12,47 @@ html
 
 	body(style="overflow-x: hidden")
 		.header
+			nav.navbar.navbar-expand-lg.navbar-light.navbar-light
+				.items.collapse.navbar-collapse#navbarNav
+					ul.navbar-nav
+						if !user
+							li.nav-item
+								a(class="nav-link" href="/auth/login") Login
+							li.nav-item
+								a(class="nav-link" href="/accounts/create") Create Account
+						if user
+							li.nav-item
+								p(style="font-size: 12px")= user.name
+							li.nav-item
+								a(class="nav-link" href="#") Logout
+
 			.d-flex.bk-head
 				.d-flex.mt-2.pt-2.support
 					i.ml-3(class="fas fa-phone-volume fa-2x")
 					p.ml-2.pt-2 Support free: 033.6511.283
 		
 			nav(class="navbar navbar-expand-lg navbar-light bg-light")
-				a.logo(class="navbar-brand" href="/") Home
-				div.items(class="collapse navbar-collapse" id="navbarSupportedContent")
-					ul(class="navbar-nav mr-auto")
+				a.logo(class="navbar-brand" href="https://coders-x.com/")
+					img(src="../images/logo.png", width="150", height="30", alt="")
+				// nav-bar responsive
+				button.navbar-toggler(type="button", data-toggle="collapse", data-target="#navbarSupportedContent")
+					span.navbar-toggler-icon
+				div.items(class="collapse navbar-collapse", id="navbarSupportedContent")
+					ul(class="navbar-nav ml-auto")
+						li.nav-item.active
+							a.nav-link(href="/") Home	
 						li(class="nav-item d-flex")
-							if !user
-								a(class="nav-link" href="/auth/login") Login
-							// a(class="nav-link" href="/users") Users
-							if !user
-								a(class="nav-link" href="/accounts/create") Create Account
-							if user
-								p(style="font-size: 12px")= user.name
 							a(class="nav-link" href="/products") Products
 							// a(class="nav-link" href="/transfers/create") Transfer
-							// a(class="nav-link" href="#") Logout
+						li.nav-item
+							a.nav-link(href="#") Blog
+						li.nav-item
+							a.nav-link(href="#") Contact
+						li.nav-item
 							a.cart(class="nav-link" href="/cart")
 								i(class="fas fa-shopping-cart fa-2x")
 								span= sumCart || ''
-							if user
-								a(class="nav-link" href="#") Logout
+							
 
 			#carouselExampleIndicators.carousel.slide(data-ride="carousel", data-interval="2000")
 				.sale
@@ -92,7 +108,7 @@ html
 		.footer
 			.container
 				.row.mt-5
-					.col-4
+					.col-sm-4
 						.about-us
 							h6 About Us
 							p Lorem ipsum dolor sit, amet cons ectetur adipis icing elit. Nobis expedita dolorem minus eaque cupid itate repud iandae mollitia veritatis sim ilique, cumque arch itecto ectetur ectetur.
@@ -105,9 +121,9 @@ html
 									i.fab.fa-google.fa-2x
 								li
 									i.fab.fa-twitter.fa-2x
-					.col-2
-					.col-2
-					.col-4
+					.col-sm-2
+					.col-sm-2
+					.col-sm-4
 						.contact-us
 							h6 Contact-Us
 							ul 

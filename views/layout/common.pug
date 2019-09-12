@@ -4,26 +4,46 @@ html
 		link(rel="stylesheet", href="https://use.fontawesome.com/releases/v5.2.0/css/all.css")
 		link(rel="stylesheet", href="../styles/cart.css")
 		script(src="js/jquery-1.11.1.min.js")
+		script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js")
+		script(src="https://code.jquery.com/jquery-3.2.1.slim.min.js", integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN", crossorigin="anonymous")
+		script(src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js", integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q", crossorigin="anonymous")
+		script(src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js", integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl", crossorigin="anonymous")
 	body
-		nav(class="navbar navbar-expand-lg navbar-light bg-light")
-			a(class="navbar-brand" href="/") Home
-			div.items(class="collapse navbar-collapse" id="navbarSupportedContent")
-				ul(class="navbar-nav mr-auto")
-					li(class="nav-item d-flex")
-						if !user
+		nav.navbar.navbar-expand-lg.navbar-light.navbar-light
+			.items.collapse.navbar-collapse#navbarNav
+				ul.navbar-nav
+					if !user
+						li.nav-item
 							a(class="nav-link" href="/auth/login") Login
-						//- a(class="nav-link" href="/users") Users
-						if !user
+						li.nav-item
 							a(class="nav-link" href="/accounts/create") Create Account
-						if user
+					if user
+						li.nav-item
+							p(style="font-size: 12px")= user.name
+						li.nav-item
 							a(class="nav-link" href="#") Logout
+
+		nav(class="navbar navbar-expand-lg navbar-light bg-light")
+			a(class="navbar-brand" href="/")
+				img(src="../images/logo.png", width="150", height="30", alt="")
+			// nav-bar responsive
+			button.navbar-toggler(type="button", data-toggle="collapse", data-target="#navbarResponsive")
+				span.navbar-toggler-icon
+			div.items(class="collapse navbar-collapse", id="navbarResponsive")
+				ul(class="navbar-nav ml-auto")
+					li.nav-item
+						a.nav-link(href="/") Home
+					li(class="nav-item d-flex")
 						a(class="nav-link" href="/products") Products
 						//- a(class="nav-link" href="#") Logout
+					li.nav-item
+						a.nav-link(href="#") Contact
+					li.nav-item
+						a.nav-link(href="#") Blog
+					li.nav-item
 						a.cart(class="nav-link" href="/cart")
 							i(class="fas fa-shopping-cart fa-2x")
 							span= sumCart || ''
-						if user
-							p(style="font-size: 12px")= user.name
 			
 
 		.container.pt-5
