@@ -175,24 +175,9 @@ nav .items .cart span {
 	box-sizing: border-box;
 	position: relative;
 	padding: 0;
-	/* background-image: url('../images/pic1.jpg');
-	background-size: cover;
-	background-position: center; */
+	margin: 20px 10px;
 }
-/* .box-img-right {
-	box-sizing: border-box;
-	position: relative;
-	background-image: url('../images/pic3.jpg');
-	background-size: cover;
-	background-position: center;
-}
-.box-img-center {
-	box-sizing: border-box;
-	position: relative;
-	background-image: url('../images/pic2.jpg');
-	background-size: cover;
-	background-position: center;
-} */
+
 /* LEFT */
 .border-style-left {
 	border: none;
@@ -278,3 +263,37 @@ nav .items .cart span {
 	transform: scale(1, 1);
 }
 
+/* --------------------------------------- */
+.box-add-cart {
+	position: relative;
+	border: 1px solid #DDD;
+	padding: 0;
+	margin: 20px 10px;
+}
+
+.box-add-cart .btn-add-cart {
+	position: absolute;
+	font-size: 10px;	
+	height: 60px;
+	width: 50%;
+	opacity: 0;
+	left: 50%;
+	transform: translate(-50%, 0);
+	border-radius: 3px;
+	background-color: #FFF !important;
+	border: 1px solid #FFF;
+	transition: all 1s;
+	font-weight: 600;
+	color: #555;
+}
+
+.btn-add-cart i {
+	display: block;
+	padding-top: 10px;
+}
+
+.box-add-cart:hover .btn-add-cart {
+	opacity: 0.8;
+	top: 50%;
+	transform: translate(-50%, -50%);
+}

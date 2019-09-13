@@ -63,3 +63,42 @@ nav .items .cart span {
 	border: none;
 	margin: 31px 5px;
 }
+
+/* --------------------------------------- */
+.box-add-cart {
+	position: relative;
+	/* border: 1px solid #DDD; */
+	padding: 0 10px;
+	margin: 20px 0;
+}
+
+.box-add-cart .btn-add-cart {
+	position: absolute;
+	font-size: 10px;	
+	height: 60px;
+	width: 50%;
+	opacity: 0;
+	left: 50%;
+	transform: translate(-50%, 0);
+	border-radius: 3px;
+	background-color: #FFF !important;
+	border: 1px solid #FFF;
+	transition: all 1s;
+	font-weight: 600;
+	color: #555;
+}
+
+.btn-add-cart i {
+	display: block;
+	padding-top: 10px;
+}
+
+.box-add-cart:hover .btn-add-cart {
+	opacity: 0.8;
+	top: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.box-add-cart a img {
+	border: 1px solid #DDD;
+}
