@@ -5,11 +5,30 @@ block content
 
 	.row.d-flex.justify-content-center
 		.card.col-sm-3
-			img.card-img-top(src=product.image, alt="...")
+			
+							img.card-img-top(src="../images/p2.jpg", alt="...")
+		.card.col-sm-4.product-details
 			.card-body
-				h5.card-title= product.name
-				p.card-text= product.description
-				a.btn.btn-primary(href='/cart/add/' + product.id) Add to cart
+				p.price-new $90.00 
+					span(style="text-decoration: line-through") $100.00
+				p.price-tax Ex Tax:
+					span $90.00
+				p.product-evaluate
+					i.far.fa-star
+					i.far.fa-star
+					i.far.fa-star
+					i.far.fa-star
+					i.far.fa-star
+					span Overview || Write a review
+				p Brand: 
+					span= product.name
+				p Product code:
+					span product10
+				p Availability:
+					span In Stock
+				p Description:
+					span= product.description
+				a.btn.btn-primary(href='/cart/add/' + product.id) Add to cart	
 		.col-sm-3.col-pay
 			table.table
 				tr

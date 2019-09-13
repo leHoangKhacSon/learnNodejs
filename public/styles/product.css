@@ -1,0 +1,29 @@
+/* PRODUCT DETAILS */
+.product-details {
+    margin-left: 10px;
+    border: none;
+}
+
+.price-new {
+    font-weight: 900;
+    font-size: 20px;
+}
+
+.price-new span {
+    font-style: italic;
+}
+
+.price-new span, .price-tax {
+    font-weight: 300;
+    font-size: 14px;
+}
+
+.card-body p span {
+    font-weight: 300;
+    font-size: 14px;
+    padding-left: 5px;
+}
+
+.product-evaluate i {
+    color: yellowgreen;
+}

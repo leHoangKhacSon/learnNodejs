@@ -8,12 +8,18 @@ block content
 			button.btn.btn-outline-success.my-2.my-sm-0(type="submit") Search
 	.row
 		each product in products
-			.col-sm-3.box-add-cart
-				a(href="/cart/add/" + product.id)
-					button.btn-add-cart ADD TO CART
-						i.fas.fa-cart-plus.fa-2x
-				a(href="/products/" + product.id)
-					img.card-img-top(src="../images/p1.jpg", alt="...")
+			.col-sm-3
+				.box-add-cart
+					a(href="/cart/add/" + product.id)
+						button.btn-add-cart ADD TO CART
+							i.fas.fa-cart-plus.fa-2x
+					a(href="/products/" + product.id)
+						img.card-img-top(src="../images/p1.jpg", alt="...")
+				.price-cart
+						p Accumsan
+						p $90.00
+							span(style="text-decoration: line-through") $100.000
+						//- p(style="text-decoration: line-through") $100.000
 			//- .col-sm-3
 			//- 	.card
 			//- 		img.card-img-top(src=product.image, alt="...")
