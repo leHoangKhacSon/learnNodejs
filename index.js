@@ -20,6 +20,7 @@ const accountRoute = require('./routes/account.route.js');
 
 const apiProductRoute = require('./api/routes/product.route.js');
 const apiUserRoute = require('./api/routes/user.route.js');
+const apiAccountRoute = require('./api/routes/account.route');
 
 const authMiddlware = require('./middlwares/auth.middlware.js');
 const sessionMiddlware = require('./middlwares/session.middlware.js'); 
@@ -38,6 +39,7 @@ app.use(express.urlencoded({ extended: true })) // for parsing application/x-www
 
 app.use('/api/products', apiProductRoute);
 app.use('/api/users', apiUserRoute);
+app.use('/api/accounts', apiAccountRoute);
 
 // sử dụng biến môi trường thay vì dùng shorid.generate()
 app.use(cookieParser(process.env.SESSION_SECRET));
