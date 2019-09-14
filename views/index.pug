@@ -298,11 +298,11 @@ html
 				// 	li(data-target="#carouselExampleIndicators", data-slide-to="2")
 				.carousel-inner(role="listbox")
 					.carousel-item.active
-						img.d-block.w-100(src="../images/slideshow5.jpg", alt="...")
+						img.d-block.w-100(src="https://res.cloudinary.com/dcailib1d/image/upload/v1568474976/ImagesExpress/slideshow5_dzkffx.jpg", alt="...")
 					.carousel-item
-						img.d-block.w-100(src="../images/slideshow1.jpg", alt="...")
+						img.d-block.w-100(src="https://res.cloudinary.com/dcailib1d/image/upload/v1568474998/ImagesExpress/slideshow1_bxy9oy.jpg", alt="...")
 					.carousel-item
-						img.d-block.w-100(src="../images/slideshow5.jpg", alt="...")
+						img.d-block.w-100(src="https://res.cloudinary.com/dcailib1d/image/upload/v1568474976/ImagesExpress/slideshow5_dzkffx.jpg", alt="...")
 				a.left.carousel-control(href='#carouselExampleIndicators', role='button', data-slide='prev')
 					span.carousel-control-prev-icon(aria-hidden='true')
 					span.sr-only Previous
@@ -357,6 +357,8 @@ html
 					span.border-style-bottom
 					a(href="#")
 						img.card-img-top(src="https://res.cloudinary.com/dcailib1d/image/upload/v1568446392/ImagesExpress/pic3_ystnqg.jpg", alt="...")
+		// 3 tab moi tab 4 san pham
+		// dung vong lap de lay ra san pham tu middleware
 		p.feature-product feature product
 		ul.container#myTab.nav.nav-tabs.tab-list(role='tablist')
 			li.nav-item.tab-items
@@ -368,141 +370,46 @@ html
 		.container#myTabContent.tab-content
 			#home.tab-pane.fade.show.active(role='tabpanel' aria-labelledby='home-tab')
 				.row
-					.col-sm
-						.box-add-cart
-							a(href="/cart/add/" + product.id)
-								button.btn-add-cart ADD TO CART
-									i.fas.fa-cart-plus.fa-2x
-							a(href="/products/" + product.id)
-								img.card-img-top(src="../images/p1.jpg", alt="...")
-						.price-cart
-							p Accumsan
-							p $90.00
-								span(style="text-decoration: line-through") $100.000
-							//- p(style="text-decoration: line-through") $100.000
-					.col-sm
-						.box-add-cart
-							button.btn-add-cart ADD TO CART
-								i.fas.fa-cart-plus.fa-2x
-							a(href="#")
-								img.card-img-top(src="../images/p2.jpg", alt="...")
-						.price-cart
-							p Adipiscing Elit
-							p $90.00
-								span(style="text-decoration: line-through") $100.000
-							//- p(style="text-decoration: line-through") $100.000
-					.col-sm
-						.box-add-cart
-							button.btn-add-cart ADD TO CART
-								i.fas.fa-cart-plus.fa-2x
-							a(href="#")
-								img.card-img-top(src="../images/p3.jpg", alt="...")
-						.price-cart
-							p ALiquam Consequat
-							p $90.00
-								span(style="text-decoration: line-through") $100.000
-							//- p(style="text-decoration: line-through") $100.000
-					.col-sm
-						.box-add-cart
-							button.btn-add-cart ADD TO CART
-								i.fas.fa-cart-plus.fa-2x
-							a(href="#")
-								img.card-img-top(src="../images/p4.jpg", alt="...")
-						.price-cart
-							p Adoublile Eu
-							p $90.00
-								span(style="text-decoration: line-through") $100.000
+					each productFeatured in productsFeatured
+						.col-sm
+							.box-add-cart
+								a(href="/cart/add/" + productFeatured.id)
+									button.btn-add-cart ADD TO CART
+										i.fas.fa-cart-plus.fa-2x
+								a(href="/products/" + productFeatured.id)
+									img.card-img-top(src= productFeatured.image, alt="...")
+							.price-cart
+								p= productFeatured.name
+								p $90.00
+									span(style="text-decoration: line-through") $100.000
 			#profile.tab-pane.fade(role='tabpanel' aria-labelledby='profile-tab')
 				.row
-					.col-sm
-						.box-add-cart
-							button.btn-add-cart ADD TO CART
-								i.fas.fa-cart-plus.fa-2x
-							a(href="#")
-								img.card-img-top(src="../images/p1.jpg", alt="...")
-						.price-cart
-							p Accumsan
-							p $90.00
-								span(style="text-decoration: line-through") $100.000
-							//- p(style="text-decoration: line-through") $100.000
-					.col-sm
-						.box-add-cart
-							button.btn-add-cart ADD TO CART
-								i.fas.fa-cart-plus.fa-2x
-							a(href="#")
-								img.card-img-top(src="../images/p2.jpg", alt="...")
-						.price-cart
-							p Adipiscing Elit
-							p $90.00
-								span(style="text-decoration: line-through") $100.000
-							//- p(style="text-decoration: line-through") $100.000
-					.col-sm
-						.box-add-cart
-							button.btn-add-cart ADD TO CART
-								i.fas.fa-cart-plus.fa-2x
-							a(href="#")
-								img.card-img-top(src="../images/p3.jpg", alt="...")
-						.price-cart
-							p ALiquam Consequat
-							p $90.00
-								span(style="text-decoration: line-through") $100.000
-							//- p(style="text-decoration: line-through") $100.000
-					.col-sm
-						.box-add-cart
-							button.btn-add-cart ADD TO CART
-								i.fas.fa-cart-plus.fa-2x
-							a(href="#")
-								img.card-img-top(src="../images/p4.jpg", alt="...")
-						.price-cart
-							p Adoublile Eu
-							p $90.00
-								span(style="text-decoration: line-through") $100.000
+					each productLatest in productsLatest
+						.col-sm
+							.box-add-cart
+								a(href="/cart/add/" + productLatest.id)
+									button.btn-add-cart ADD TO CART
+										i.fas.fa-cart-plus.fa-2x
+								a(href="/products/" + productLatest.id)
+									img.card-img-top(src= productLatest.image, alt="...")
+							.price-cart
+								p= productLatest.name
+								p $90.00
+									span(style="text-decoration: line-through") $100.000
 			#contact.tab-pane.fade(role='tabpanel' aria-labelledby='contact-tab')
 				.row
-					.col-sm
-						.box-add-cart
-							button.btn-add-cart ADD TO CART
-								i.fas.fa-cart-plus.fa-2x
-							a(href="#")
-								img.card-img-top(src="../images/p1.jpg", alt="...")
-						.price-cart
-							p Accumsan
-							p $90.00
-								span(style="text-decoration: line-through") $100.000
-							//- p(style="text-decoration: line-through") $100.000
-					.col-sm
-						.box-add-cart
-							button.btn-add-cart ADD TO CART
-								i.fas.fa-cart-plus.fa-2x
-							a(href="#")
-								img.card-img-top(src="../images/p2.jpg", alt="...")
-						.price-cart
-							p Adipiscing Elit
-							p $90.00
-								span(style="text-decoration: line-through") $100.000
-							//- p(style="text-decoration: line-through") $100.000
-					.col-sm
-						.box-add-cart
-							button.btn-add-cart ADD TO CART
-								i.fas.fa-cart-plus.fa-2x
-							a(href="#")
-								img.card-img-top(src="../images/p3.jpg", alt="...")
-						.price-cart
-							p ALiquam Consequat
-							p $90.00
-								span(style="text-decoration: line-through") $100.000
-							//- p(style="text-decoration: line-through") $100.000
-					.col-sm
-						.box-add-cart
-							button.btn-add-cart ADD TO CART
-								i.fas.fa-cart-plus.fa-2x
-							a(href="#")
-								img.card-img-top(src="../images/p4.jpg", alt="...")
-						.price-cart
-							p Adoublile Eu
-							p $90.00
-								span(style="text-decoration: line-through") $100.000
-
+					each productSpecial in productsSpecial
+						.col-sm
+							.box-add-cart
+								a(href="/cart/add/" + productSpecial.id)
+									button.btn-add-cart ADD TO CART
+										i.fas.fa-cart-plus.fa-2x
+								a(href="/products/" + productSpecial.id)
+									img.card-img-top(src= productSpecial.image, alt="...")
+							.price-cart
+								p= productSpecial.name
+								p $90.00
+									span(style="text-decoration: line-through") $100.000
 		// footer
 		.footer
 			.container

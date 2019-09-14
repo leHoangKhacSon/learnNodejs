@@ -18,6 +18,8 @@ module.exports.carts = async function(req, res){
 	if(cartsArray.length > 0){
 		res.locals.priceSum = cartsArray.map(c => c.quantity * c.priceProduct)
 								.reduce((a, b) => a + b);
+		res.locals.productSum = cartsArray.map(cart => cart.quantity)
+								.reduce((a, b) => a + b);
 	}
 
 	let productIdArray = cartsArray.map(c => c.productId);

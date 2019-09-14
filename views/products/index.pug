@@ -14,9 +14,9 @@ block content
 						button.btn-add-cart ADD TO CART
 							i.fas.fa-cart-plus.fa-2x
 					a(href="/products/" + product.id)
-						img.card-img-top(src="../images/p1.jpg", alt="...")
+						img.card-img-top(src= product.image, alt="...")
 				.price-cart
-						p Accumsan
+						p= product.name
 						p $90.00
 							span(style="text-decoration: line-through") $100.000
 						//- p(style="text-decoration: line-through") $100.000
