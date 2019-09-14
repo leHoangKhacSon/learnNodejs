@@ -20,7 +20,8 @@ block content
 								a.badge.badge-primary(href="#") Delete
 						td
 							.price-product
-								p= product.price
+								p $
+									span= product.price
 
 		.col-sm-2
 			table.table
@@ -36,7 +37,8 @@ block content
 				tr
 					th
 						b Total Price:
-					td= priceSum
+					td $
+						span= priceSum
 					
 				tr
 					th

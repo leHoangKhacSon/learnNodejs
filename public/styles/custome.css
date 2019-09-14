@@ -120,6 +120,7 @@ nav .items .cart span {
 	border-radius: 50%;
 	overflow: hidden;
 	box-sizing: border-box;
+	transition: all .5s;
 }
 
 .single-service .box-item:hover {
@@ -310,4 +311,79 @@ nav .items .cart span {
 	color: #AAA;
 	font-size: 90%;
 	font-style: italic;
+}
+
+/* STYLE DROPDOWN */
+.product {
+	position: relative;
+	display: block;
+}
+
+.sub-menu {
+	position: absolute;
+	opacity: 0;
+	top: 55px;
+	display: none;
+	right: 20px;
+	border: 1px solid #EEE;
+	display: flex;
+	padding-left: 0px;
+	transition: all .3s;
+}
+
+.item-menu .item {
+	list-style: none;
+	color: #888;
+}
+
+.sub-menu .item-menu {
+	margin: 10px 25px 20px 25px;
+}
+
+.item-menu .item:nth-child(1) {
+	font-weight: 500;
+	font-size: 20px;
+	text-align: center;
+	padding-bottom: 10px;
+	margin-bottom: 10px;
+	color: plum;
+	border-bottom: 1px solid #EEE;
+	text-transform: uppercase;
+}
+
+.item-menu .item {
+	font-weight: 300;
+	font-size: 14px;
+	color: #333;
+}
+
+.item span {
+	margin-right: 10px;
+}
+
+.item i {
+	margin-right: 5px;
+	font-size: 80%;
+	color: #fa5b2f;
+}
+
+.navbar-nav .top-bar-product:hover .sub-menu {
+	opacity: 1;
+	z-index: 1;
+	background-color: #FFF;
+}
+
+
+/* BENIFIT */
+.border-benifit {
+	border-top: 1px solid #EEE;
+	border-bottom: 1px solid #EEE;
+}
+
+.border-right {
+	border-right: 1px solid #EEE;
+}
+
+.border-left {
+	border-left: 1px solid #EEE;
 }

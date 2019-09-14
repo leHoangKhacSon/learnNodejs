@@ -46,7 +46,7 @@ module.exports.index = async function(req, res){
 	// lay ve trang hien tai, mac dinh bang 1
 	let page = parseInt(req.query.page) || 1;
 	// 8 san pham trong 1 trang
-	let perPage = 4;
+	let perPage = 8;
 	let skipPage = (page - 1) * perPage;
 
 	let product = await Product.find();
