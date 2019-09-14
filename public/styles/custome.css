@@ -1,3 +1,7 @@
+*{
+	font-family: "Lato";
+}
+
 h1 {
 	background-color: #EEE;
 	margin-bottom: 0;
@@ -97,16 +101,23 @@ nav .items .cart span {
 	flex-direction: column;
 	margin-top: 50px;
 	margin-bottom: 50px;
+	
 }
 
-.single-service h5 {
+.single-service .box-title {
 	padding-top: 15px;
 	padding-bottom: 15px;
+	font-size: 20px;
+	letter-spacing: 2px;
+	word-spacing: 5px;
+	color: #111;
 }
 
 .single-service p {
 	font-size: 90%;
 	font-weight: 300;
+	font-family: "Lato";
+	color: #888;
 }
 
 .box-item i {
@@ -133,8 +144,9 @@ nav .items .cart span {
 
 /*CSS FOOTER*/
 .footer {
-	background-color: #DDD;
+	background-color: #666;
 	padding-top: 10px;
+	margin-top: 30px;
 }
 
 .about-us ul{
@@ -166,8 +178,8 @@ nav .items .cart span {
 
 .copyright {
 	border-top: 1px solid #FFF;
-	background-color: #DDD;
-	color: #666;
+	background-color: #666;
+	color: #EEE;
 	margin-left: 30%;
 }
 
@@ -265,6 +277,8 @@ nav .items .cart span {
 }
 
 /* --------------------------------------- */
+
+
 .box-add-cart {
 	position: relative;
 	border: 1px solid #DDD;
@@ -317,6 +331,7 @@ nav .items .cart span {
 .product {
 	position: relative;
 	display: block;
+	font-family: "Lato";
 }
 
 .sub-menu {
@@ -375,9 +390,14 @@ nav .items .cart span {
 
 
 /* BENIFIT */
+.single-service .box-item{
+	font-family: "Lato";
+}
+
 .border-benifit {
 	border-top: 1px solid #EEE;
 	border-bottom: 1px solid #EEE;
+	margin-top: 30px;
 }
 
 .border-right {
@@ -386,4 +406,37 @@ nav .items .cart span {
 
 .border-left {
 	border-left: 1px solid #EEE;
+}
+
+/* TABS COMPONENT */
+.tab-list {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	border: none;
+	margin-bottom: 30px;
+	margin-top: 30px;
+}
+
+.tab-list .tab-items {
+	text-transform: uppercase;
+	border: none;
+}
+
+.tab-list .tab-items a {
+	font-family: "Lato";
+	letter-spacing: 0.2em;
+	word-spacing: 5px;
+	color: #AAA;
+	font-size: 18px;
+}
+
+/* FEATURE PRODUCT */
+.feature-product {
+	text-align: center;
+	text-transform: uppercase;
+	font-size: 24px;
+	letter-spacing: 10px;
+	word-spacing: 20px;
+	font-family: "Lato";
 }

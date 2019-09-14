@@ -2,6 +2,9 @@
 /* nav .items {
 	margin-left: 800px;
 } */
+* {
+    font-family: "Lato";
+}
 
 nav .items a {
 	margin-left: 10px;
@@ -117,3 +120,5 @@ nav .items .cart span {
 	font-size: 90%;
 	font-style: italic;
 }
+
+
