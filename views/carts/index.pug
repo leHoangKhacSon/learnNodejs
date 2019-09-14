@@ -11,12 +11,13 @@ block content
 		.col-sm-6
 			table.table
 				each product in products
-					tr
+					tr.info-cart
 						td(style="width:100px")
 							img.cart-img(src=product.image, alt="")
 						td
 							.info-product
 								p= product.name
+								p.cart-description= product.description
 								a.badge.badge-primary(href="#") Delete
 						td
 							.price-product

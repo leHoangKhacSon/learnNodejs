@@ -63,13 +63,20 @@ h1 {
 	color: #FFF;
 }
 
+/* SUPPORT COMPONENT */
 .support {
 	position: fixed;
 	z-index: 1;
-	right: 10px;
+	right: 20px;
 	bottom: 10px;
 	color: #333;
 }
+
+.support:hover i{
+	color: #2a2ab4;
+	transform: scale(1.2);
+}
+
 /* 
 nav .items {
 	margin-left: 800px;
@@ -144,9 +151,34 @@ nav .items .cart span {
 
 /*CSS FOOTER*/
 .footer {
-	background-color: #666;
+	background-color: #999;
 	padding-top: 10px;
 	margin-top: 30px;
+}
+
+.footer .footer-title {
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	color: #111;
+	font-weight: 700;
+	display: inline-block;
+	transition: all .3s;
+}
+
+.footer .footer-title:hover {
+	color: #2a2ab4;
+	transform: scale(1.3);
+}
+
+.footer ul li {
+	list-style: none;
+}
+
+.about-us,
+.contact-us,
+.product-us,
+.resource {
+	color: #333;
 }
 
 .about-us ul{
@@ -155,12 +187,11 @@ nav .items .cart span {
 }
 
 .about-us ul li {
-	padding-left: 10px;
-	padding-right: 10px;
+	padding: 15px 10px;
 	transition: all .3s;
 }
 
-.about-us ul li:hover {
+.about-us ul li:hover i{
 	transform: scale(1.2);
 	color: #2a2ab4;
 }
@@ -175,10 +206,43 @@ nav .items .cart span {
 	padding-top: 5px;
 }
 
+.contact-us ul li i,
+.resource ul li i,
+.product-us ul li, i {
+	margin-right: 10px;
+	transition: all .3s;
+}
+
+.contact-us ul li:hover i,
+.resource ul li:hover i,
+.product-us ul li:hover i {
+	transform: scale(1.5);
+	color: #2a2ab4;
+}
+
+.product-us ul {
+	padding: 0;
+}
+
+.resource ul,
+.product-us ul {
+	padding: 0;
+}
+
+.resource ul li,
+.product-us ul li {
+	padding: 2px 0;
+}
+
+.resource ul li i,
+.product-us ul li i {
+	padding-right: 8px;	
+	font-size: 60%;
+}
 
 .copyright {
-	border-top: 1px solid #FFF;
-	background-color: #666;
+	border-top: 1px solid #CCC;
+	background-color: #999;
 	color: #EEE;
 	margin-left: 30%;
 }
@@ -348,7 +412,7 @@ nav .items .cart span {
 
 .item-menu .item {
 	list-style: none;
-	color: #888;
+	color: #333;
 }
 
 .sub-menu .item-menu {
@@ -370,6 +434,17 @@ nav .items .cart span {
 	font-weight: 300;
 	font-size: 14px;
 	color: #333;
+}
+
+.item-menu .item a {
+	font-weight: 300;
+	text-decoration: none;
+	color: #333;
+	transition: all .3s;
+}
+
+.item-menu .item a:hover {
+	color: #fa5b2f;
 }
 
 .item span {
@@ -426,9 +501,10 @@ nav .items .cart span {
 .tab-list .tab-items a {
 	font-family: "Lato";
 	letter-spacing: 0.2em;
-	word-spacing: 5px;
+	word-spacing: 4px;
 	color: #AAA;
 	font-size: 18px;
+	border: none;
 }
 
 /* FEATURE PRODUCT */

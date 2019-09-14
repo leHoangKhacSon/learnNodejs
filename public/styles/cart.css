@@ -39,8 +39,12 @@ nav .items .cart span {
 }
 
 .cart-img {
-	width: 100px;
-	height: 100px;
+	width: 120px;
+	height: 120px;
+}
+
+.info-cart {
+	position: relative;
 }
 
 .info-product {
@@ -51,6 +55,14 @@ nav .items .cart span {
 .info-product a {
 	margin-left: 5px;
 	margin-top: 40px;
+}
+
+.info-product .cart-description {
+	font-size: 12px;
+}
+
+.info-product a {
+	margin: 0;
 }
 
 .price-product {

@@ -28,6 +28,10 @@
     padding-left: 5px;
 }
 
+.product-details .button-add {
+	padding: 5px 115px;
+}
+
 .product-evaluate i {
     color: yellowgreen;
 }
