@@ -166,3 +166,24 @@ module.exports.postCheckout = async function(req, res, next){
 	// neu ton tai chuyen sang trang pay
 	res.render('carts/pay');
 }
+
+module.exports.deleteProduct = async function(req, res, next){
+	// lay sessionId cua nguoi dung hien tai
+	let sessionId = req.signedCookies.sessionId;
+	// lay id san pham can xoa
+	let productId = req.params.id;
+	// lay session hien tai
+	let session = await Session.findOne({sessionId: sessionId});
+	// lay ra san pham cua nguoi dung hien tai
+	let cartsArray = session.cart;
+	let productDel = cartsArray.map(function(cart){
+		if(cart.productId === productId){
+			return cart;
+		}	
+	});
+	cartsArray.splice(cartsArray.indexOf(productDel), 1);
+
+	let newSession = await Session.findOneAndUpdate({sessionId: sessionId}, {cart: cartsArray});
+
+	res.redirect('/cart');
+}

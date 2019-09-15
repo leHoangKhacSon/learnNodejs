@@ -8,21 +8,41 @@ block content
 		span=   sumCart || 0
 
 	.row
-		.col-sm-6
-			table.table
-				each product in products
-					tr.info-cart
-						td(style="width:100px")
-							img.cart-img(src=product.image, alt="")
+		each product in products
+			.col-sm-8.info-pro
+					img.img-pro(src=product.image, alt="")
+					ul.details-pro
+						li
+							p.name-pro= product.name
+							p.description-pro= product.description
+							p.stock-pro Instock
+					ul.bonus-pro
+						li
+							p $
+								span= product.price
+						li
+							p 30
+						li.delete-pro
+							a(href="/cart/delete/" + product._id)
+								i.fas.fa-trash
+			.col-sm.col-pay
+				table.table
+					tr
+						th
+							b Total Price:
+						td $
+							span= priceSum
+						
+					tr
+						th
+							b ProductSum
+						td= productSum
+					tr 
+						th 
+							b Shipping
 						td
-							.info-product
-								p= product.name
-								p.cart-description= product.description
-								a.badge.badge-primary(href="#") Delete
-						td
-							.price-product
-								p $
-									span= product.price
+				form(action="cart/checkout", method="GET", style="width:100%")
+					button.btn.btn-outline-success(type="submit", style="width:100%") Go to checkout
 
 		.col-sm-2
 			table.table
@@ -33,24 +53,11 @@ block content
 						// 		p=session.quantity
 						td(data-th='Quantity')
 							input.form-control.text-center(value=session.quantity, type='number')
-		.col-sm.col-pay
-			table.table
-				tr
-					th
-						b Total Price:
-					td $
-						span= priceSum
-					
-				tr
-					th
-						b ProductSum
-					td= productSum
-				tr 
-					th 
-						b Shipping
-					td
-			form(action="cart/checkout", method="GET", style="width:100%")
-				button.btn.btn-outline-success(type="submit", style="width:100%") Go to checkout
+		
+		.row 	
+			
+				
+
 	
 	
 		

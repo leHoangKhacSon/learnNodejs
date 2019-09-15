@@ -18,4 +18,6 @@ router.post('/checkout', middleware.requireAuth, validate.checkout, controller.p
 
 router.post('/checkcode', middleware.requireAuth, controller.checkcode);
 
+router.get('/delete/:id', controller.deleteProduct);
+
 module.exports = router;

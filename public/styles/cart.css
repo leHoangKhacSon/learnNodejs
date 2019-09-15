@@ -133,4 +133,62 @@ nav .items .cart span {
 	font-style: italic;
 }
 
+/* CSS CART */
+.info-pro {
+	display: flex;
+	border: 1px solid #DDD;
+	border-radius: 10px;
+	background-color: whitesmoke;
+	margin-bottom: 15px;
+}
+
+.img-pro {
+	height: 150px;
+	width: 100px;
+	margin: 15px 10px;
+	border: 1px solid #EEE;
+}
+
+.info-pro .details-pro {
+	list-style: none;
+	margin-top: 15px;
+}
+
+.info-pro .bonus-pro {
+	list-style: none;
+	display: flex;
+}
+
+.details-pro .description-pro {
+	font-style: italic;
+	color: #666;
+	font-size: 14px;
+}
+
+.details-pro .stock-pro {
+	color: blue;
+}
+
+.info-pro .bonus-pro li {
+	margin: 10px 20px;
+}
+
+.details-pro .name-pro {
+	font-weight: 700;
+
+}
+
+.bonus-pro .delete-pro {
+	margin-right: 0px;
+}
+
+.bonus-pro .delete-pro a i{
+	color: #DDD;
+	transition: all .3s;
+}
+
+.bonus-pro .delete-pro a:hover i{
+	transform: scale(1.2);
+	color: red;
+}
 
