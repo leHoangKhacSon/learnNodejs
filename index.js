@@ -28,7 +28,7 @@ const cartMiddleware = require('./middlwares/cart.middlware.js');
 const userMiddleware = require('./middlwares/user.middleware.js');
 
 const app = express();
-const port = 7000;
+const port = process.env.PORT || 7000;
 
 app.set('view engine', 'pug');
 app.set('views', './views');

@@ -49,7 +49,7 @@ const User = require('../models/user.model.js');
 module.exports.index = async function(req, res){
 	let users = await User.find();
 	res.render('users/index', {
-		users: users
+		users
 	});
 };
 
@@ -73,7 +73,7 @@ module.exports.get = async function(req, res){
 	let id = req.params.id;
 	let user = await User.findById(id);
 	res.render('users/view', {
-		user: user
+		user
 	});
 };
 

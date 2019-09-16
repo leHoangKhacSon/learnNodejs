@@ -27,7 +27,7 @@ block content
 					span In Stock
 				p Description:
 					span= product.description
-				a.btn.btn-primary.button-add(href='/cart/add/' + product.id) Add to cart	
+				a.btn.btn-primary.button-add(href=`/cart/add/${product.id}`) Add to cart	
 		.col-sm-3.col-pay
 			table.table
 				tr

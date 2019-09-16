@@ -13,7 +13,7 @@ module.exports = async function(req, res, next) {
 		});
 		// thêm sessions và database
 		let session = await Session.create({
-			sessionId: sessionId,
+			sessionId,
 			cart: []
 		})
 		// await session.save();

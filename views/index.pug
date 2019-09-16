@@ -373,10 +373,10 @@ html
 					each productFeatured in productsFeatured
 						.col-sm
 							.box-add-cart
-								a(href="/cart/add/" + productFeatured.id)
+								a(href=`/cart/add/${productFeatured.id}`)
 									button.btn-add-cart ADD TO CART
 										i.fas.fa-cart-plus.fa-2x
-								a(href="/products/" + productFeatured.id)
+								a(href=`/products/${productFeatured.id}`)
 									img.card-img-top(src= productFeatured.image, alt="...")
 							.price-cart
 								p= productFeatured.name
@@ -387,10 +387,10 @@ html
 					each productLatest in productsLatest
 						.col-sm
 							.box-add-cart
-								a(href="/cart/add/" + productLatest.id)
+								a(href=`/cart/add/${productLatest.id}`)
 									button.btn-add-cart ADD TO CART
 										i.fas.fa-cart-plus.fa-2x
-								a(href="/products/" + productLatest.id)
+								a(href=`/products/${productLatest.id}`)
 									img.card-img-top(src= productLatest.image, alt="...")
 							.price-cart
 								p= productLatest.name
@@ -401,10 +401,10 @@ html
 					each productSpecial in productsSpecial
 						.col-sm
 							.box-add-cart
-								a(href="/cart/add/" + productSpecial.id)
+								a(href=`/cart/add/${productSpecial.id}`)
 									button.btn-add-cart ADD TO CART
 										i.fas.fa-cart-plus.fa-2x
-								a(href="/products/" + productSpecial.id)
+								a(href=`/products/${productSpecial.id}`)
 									img.card-img-top(src= productSpecial.image, alt="...")
 							.price-cart
 								p= productSpecial.name

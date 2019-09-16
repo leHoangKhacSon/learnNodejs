@@ -67,9 +67,9 @@ module.exports.index = async function(req, res){
 	let products = await Product.find().limit(perPage).skip(skipPage);
 
 	res.render('products/index', {
-		products: products,
-		page: page,
-		pageArray: pageArray
+		products,
+		page,
+		pageArray
 	});
 };	
 
@@ -102,9 +102,9 @@ module.exports.search = async function(req, res, next){
 
 	res.render('products/search', {
 		products: products.slice(start, end),
-		page: page,
-		pageArray: pageArray,
-		qr: qr
+		page,
+		pageArray,
+		qr
 	});
 }
 
@@ -128,6 +128,6 @@ module.exports.details = async function(req, res, next){
 	// tim san pham trong product collection
 	let product = await Product.findOne({_id: _id});
 	res.render('products/details', {
-		product: product
+		product
 	});
 }

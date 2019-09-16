@@ -28,7 +28,7 @@ module.exports.carts = async function(req, res){
 
 	res.render('carts/index', {
 		// cartsArr: await sessions.cart
-		sessions: sessions
+		sessions
 	});
 };
 
