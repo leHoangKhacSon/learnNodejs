@@ -32,6 +32,7 @@ nav .items .cart span {
 	border-radius: 5px;
 	margin-left: 20px;
 	border: 1px solid #EEE;
+	margin-top: 0px;
 }
 
 .col-pay form {
