@@ -19,10 +19,10 @@ nav .items .cart span {
 	position: absolute;
 	color: #FFF;
 	font-weight: 800;
-	left: 25px;
+	left: 28px;
 	top: 0px;
 	background-color: red;
-	padding: 0px 7px;
+	padding: 0px 3px;
 	border-radius: 50%;
 }
 
@@ -149,6 +149,7 @@ nav .items .cart span {
 .info-pro .details-pro {
 	list-style: none;
 	margin-top: 15px;
+	flex-grow: 1;
 }
 
 .info-pro .bonus-pro {
@@ -202,6 +203,11 @@ nav .items .cart span {
 	text-align: center;
 	margin-bottom: 0px;
 	background-color: #DDD;
+}
+
+.quantity-click .input-quantity {
+	width: 40px;
+	text-align: center;
 }
 
 .quantity-click .increase,

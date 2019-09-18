@@ -29,10 +29,10 @@ nav .items .cart span {
 	position: absolute;
 	color: #FFF;
 	font-weight: 800;
-	left: 25px;
+	left: 28px;
 	top: 0px;
 	background-color: red;
-	padding: 0px 7px;
+	padding: 0px 3px;
 	border-radius: 50%;
 }
 /* ------------------------------------------------------------------------------------------------ */

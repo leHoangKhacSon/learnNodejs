@@ -23,7 +23,9 @@ block content
 									span= product.price
 							li
 								.quantity-click
-									button.reduction -	
+									a(href=`cart/deleteOne/${product.id}`)
+										button.reduction -	
+									//- tim so luong san pham theo productId
 									input.input-quantity(value=`${(cartsArray.find(function(x){
 																									return x.productId == product._id;
 																								})).quantity}`,
@@ -53,7 +55,6 @@ block content
 				button.btn.btn-outline-success(type="submit", style="width:100%") Go to checkout
 
 	script(type="text/javascript").
-		let quantityPro = document.getElementsByClassName('quantity');
 		let increaseBtn = document.getElementsByClassName('increase');
 		let reductionBtn = document.getElementsByClassName('reduction');
 		let inputQuantity = document.getElementsByClassName('input-quantity');
@@ -67,7 +68,7 @@ block content
 			}
 
 			function reductionQuantity() {
-				if(inputQuantity[i].value <= 0) {
+				if(ParseInt(inputQuantity[i].value) <= 0) {
 					return inputQuantity[i].value = 0;
 				}
 				return inputQuantity[i].value--;

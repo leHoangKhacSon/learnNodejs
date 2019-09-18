@@ -188,3 +188,19 @@ module.exports.deleteProduct = async function(req, res, next){
 
 	res.redirect('/cart');
 }
+
+module.exports.deleteOne = async function(req, res) {
+	let sessionId = req.signedCookies.sessionId;
+	let productId = req.params.id;
+	let session = await Session.findOne({sessionId});
+	let findCart = session.cart.find(x =>{ return x.productId === productId } );
+	let indexCart = session.cart.indexOf(findCart);
+	if(findCart.quantity <= 0) {
+		findCart.quantity = 0;
+	} else {
+		findCart.quantity = findCart.quantity - 1;
+	}
+	session.cart[indexCart] = findCart;
+	let newSession = await Session.findOneAndUpdate({sessionId}, {cart: session.cart});
+	res.redirect('/cart');
+}

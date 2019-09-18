@@ -20,4 +20,6 @@ router.post('/checkcode', middleware.requireAuth, controller.checkcode);
 
 router.get('/delete/:id', controller.deleteProduct);
 
+router.get('/deleteOne/:id', controller.deleteOne);
+
 module.exports = router;
