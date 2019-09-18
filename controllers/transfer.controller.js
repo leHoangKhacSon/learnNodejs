@@ -1,7 +1,3 @@
-// const shortId = require('shortid');
-
-// const db = require('../db.js');
-
 const Transfer = require('../models/transfer.model.js');
 
 module.exports.create = function(req, res, next){

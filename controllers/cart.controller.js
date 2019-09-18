@@ -6,15 +6,9 @@ module.exports.carts =  async function(req, res){
 	let sessionId = req.signedCookies.sessionId;
 	// tim sessions co sessionId = sessionId
 	let sessions = await Session.findOne({sessionId: sessionId});
-
-	// let carts = db.get('sesssions')
-	// 			  .find({id: sessionId})
-	// 			  .get('cart')
-	// 			  .value();
-	// // chuyển từ object thành array 
-	// // {key: value} => [[key, value]]
-	// let cartsArr = Object.entries(carts);
+	// lay array cart trong sessions
 	let cartsArray = sessions.cart;
+
 	if(cartsArray.length > 0){
 		res.locals.priceSum = cartsArray.map(c => c.quantity * c.priceProduct)
 								.reduce((a, b) => a + b);
@@ -75,24 +69,11 @@ module.exports.addToCart = async function(req, res, next){
 		// update vao database
 		await Session.findOneAndUpdate({sessionId: sessionId}, {cart: sessions.cart});
 	}
-	
+	let baseUrl = req.baseUrl;
+	let originalUrl = req.originalUrl;
+	let path = req.path;
 
-	
-
-
-	// // lay gia tri ban dau
-	// let count = db.get('sessions')
-	// 	  .find({id: sessionId})
-	// 	  .get('cart.' + productId, 0)
-	// 	  .value();
-	// // them vao db
-	// db.get('sessions')
-	//   .find({id: sessionId})
-	//   .set('cart.' + productId, count + 1)
-	//   .write();
-
-
-	res.redirect(req.baseUrl);
+	res.redirect(req.headers.referer);
 };
 
 module.exports.checkout = async function(req, res, next){
@@ -131,15 +112,6 @@ module.exports.checkout = async function(req, res, next){
 }
 
 module.exports.pay = async function(req, res, next){
-	// // lay ma code nguoi dung nhap vao
-	// let code = req.body.checkCode;
-	// // kiem tra ma code
-	// let check = await Session.find({checkCode: code})
-	// // neu dung hoan cho phep Pay now
-	// if(!check){
-	// 	res.dedirect('/cart/checkout');
-	// }
-	// // neu khong dung thi nhap lai
 	res.render('carts/pay');
 }
 
@@ -182,7 +154,7 @@ module.exports.deleteProduct = async function(req, res, next){
 			return cart;
 		}	
 	});
-	cartsArray.splice(cartsArray.indexOf(productDel), 1);
+	cartsArray.splice(cartsArray.indexOf(productDel) - 1, 1);
 
 	let newSession = await Session.findOneAndUpdate({sessionId: sessionId}, {cart: cartsArray});
 

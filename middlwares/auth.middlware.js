@@ -8,9 +8,6 @@ module.exports.requireAuth = async function(req, res, next){
 	}
 	// check cookie đúng hay không
 	let user = await User.findOne({_id: req.signedCookies.userId});
-	// let user = db.get('users').find({
-	// 	id: req.signedCookies.userId
-	// }).value();
 	// kiểm tra
 	if(!user){
 		res.redirect('/auth/login');
