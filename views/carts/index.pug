@@ -9,7 +9,7 @@ block content
 
 	.row
 		.col-sm-8
-			each product in products
+			each product, index in products
 				.info-pro
 						img.img-pro(src=product.image, alt="")
 						ul.details-pro
@@ -22,7 +22,14 @@ block content
 								p $
 									span= product.price
 							li
-								p 30
+								.quantity-click
+									button.reduction -	
+									input.input-quantity(value=`${(cartsArray.find(function(x){
+																									return x.productId == product._id;
+																								})).quantity}`,
+																			 type='number', disabled='disabled')
+									a(href=`cart/add/${product.id}`)
+										button.increase +
 							li.delete-pro
 								a(href=`/cart/delete/${product.id}`)
 									i.fas.fa-trash
@@ -45,16 +52,30 @@ block content
 			form(action="cart/checkout", method="GET", style="width:100%")
 				button.btn.btn-outline-success(type="submit", style="width:100%") Go to checkout
 
-		.col-sm-2
-			table.table
-				each session in sessions.cart
-					tr.total-quantity 
-						// td
-						// 	.total-quantity 
-						// 		p=session.quantity
-						td(data-th='Quantity')
-							input.form-control.text-center(value=session.quantity, type='number')
+	script(type="text/javascript").
+		let quantityPro = document.getElementsByClassName('quantity');
+		let increaseBtn = document.getElementsByClassName('increase');
+		let reductionBtn = document.getElementsByClassName('reduction');
+		let inputQuantity = document.getElementsByClassName('input-quantity');
+		for(let i = 0; i < inputQuantity.length; i++) {
+			increaseBtn[i].addEventListener('click', increaseQuantity);
+			reductionBtn[i].addEventListener('click', reductionQuantity);
+
+			function increaseQuantity() {
+				return inputQuantity[i].value++;
+				
+			}
+
+			function reductionQuantity() {
+				if(inputQuantity[i].value <= 0) {
+					return inputQuantity[i].value = 0;
+				}
+				return inputQuantity[i].value--;
+			}
+		}
 		
+		
+
 		
 			
 				

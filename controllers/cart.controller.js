@@ -2,7 +2,7 @@ const Session = require('../models/session.model.js');
 const Product = require('../models/product.model.js');
 const shortid = require('shortid');
 
-module.exports.carts = async function(req, res){
+module.exports.carts =  async function(req, res){
 	let sessionId = req.signedCookies.sessionId;
 	// tim sessions co sessionId = sessionId
 	let sessions = await Session.findOne({sessionId: sessionId});
@@ -25,6 +25,7 @@ module.exports.carts = async function(req, res){
 	let productIdArray = cartsArray.map(c => c.productId);
 	let products = await Product.find();
 	res.locals.products = products.filter(product => productIdArray.indexOf(product._id) !== -1);
+	res.locals.cartsArray = cartsArray;
 
 	res.render('carts/index', {
 		// cartsArr: await sessions.cart
@@ -91,7 +92,7 @@ module.exports.addToCart = async function(req, res, next){
 	//   .write();
 
 
-	res.redirect('/products');
+	res.redirect(req.baseUrl);
 };
 
 module.exports.checkout = async function(req, res, next){

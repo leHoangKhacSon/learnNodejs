@@ -189,3 +189,30 @@ nav .items .cart span {
 	color: red;
 }
 
+/* QUANTITY CLICK */
+.quantity-click {
+	display: flex;
+	height: 20px;
+	align-items: center;
+	
+}
+
+.quantity-click p {
+	width: 30px;
+	text-align: center;
+	margin-bottom: 0px;
+	background-color: #DDD;
+}
+
+.quantity-click .increase,
+.quantity-click .reduction {
+	border: none;
+	width: 20px;
+	font-weight: 700;
+	background-color: #DDD;
+}
+
+.quantity-click .increase:active,
+.quantity-click .reduction:active {
+	color: #2a2ab4;
+}
