@@ -149,12 +149,10 @@ module.exports.deleteProduct = async function(req, res, next){
 	let session = await Session.findOne({sessionId: sessionId});
 	// lay ra san pham cua nguoi dung hien tai
 	let cartsArray = session.cart;
-	let productDel = cartsArray.map(function(cart){
-		if(cart.productId === productId){
-			return cart;
-		}	
+	let productDel = cartsArray.find(function(cart){
+		return cart.productId === productId;
 	});
-	cartsArray.splice(cartsArray.indexOf(productDel) - 1, 1);
+	cartsArray.splice(cartsArray.indexOf(productDel), 1);
 
 	let newSession = await Session.findOneAndUpdate({sessionId: sessionId}, {cart: cartsArray});
 
