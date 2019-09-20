@@ -3,56 +3,60 @@ extends ../layout/common.pug
 block content
 	h1 
 		span Cart 
+	if sumCart === undefined
+		p Giỏ hàng chưa có sản phẩm nào
+		a(href='/products')
+			button.btn.btn-outline-info(type="button") Tiếp tục mua sắm
+	else 
+		p số loại sản phẩm  
+			span=   sumCart || 0
 
-	p số loại sản phẩm  
-		span=   sumCart || 0
-
-	.row
-		.col-sm-8
-			each product, index in products
-				.info-pro
-						img.img-pro(src=product.image, alt="")
-						ul.details-pro
-							li
-								p.name-pro= product.name
-								p.description-pro= product.description
-								p.stock-pro Instock
-						ul.bonus-pro
-							li
-								p $
-									span= product.price
-							li
-								.quantity-click
-									a(href=`cart/deleteOne/${product.id}`)
-										button.reduction -	
-									//- tim so luong san pham theo productId
-									input.input-quantity(value=`${(cartsArray.find(function(x){
-																									return x.productId == product._id;
-																								})).quantity}`,
-																			 type='number', disabled='disabled')
-									a(href=`cart/add/${product.id}`)
-										button.increase +
-							li.delete-pro
-								a(href=`/cart/delete/${product.id}`)
-									i.fas.fa-trash
-		.col-sm.col-pay
-			table.table
-				tr
-					th
-						b Total Price:
-					td $
-						span= priceSum
-							
-				tr
-					th
-						b ProductSum
-					td= productSum
-				tr 
-					th 
-						b Shipping
-					td
-			form(action="cart/checkout", method="GET", style="width:100%")
-				button.btn.btn-outline-success(type="submit", style="width:100%") Go to checkout
+		.row
+			.col-sm-8
+				each product, index in products
+					.info-pro
+							img.img-pro(src=product.image, alt="")
+							ul.details-pro
+								li
+									p.name-pro= product.name
+									p.description-pro= product.description
+									p.stock-pro Instock
+							ul.bonus-pro
+								li
+									p $
+										span= product.price
+								li
+									.quantity-click
+										a(href=`cart/deleteOne/${product.id}`)
+											button.reduction -	
+										//- tim so luong san pham theo productId
+										input.input-quantity(value=`${(cartsArray.find(function(x){
+																										return x.productId == product._id;
+																									})).quantity}`,
+																				type='number', disabled='disabled')
+										a(href=`cart/add/${product.id}`)
+											button.increase +
+								li.delete-pro
+									a(href=`/cart/delete/${product.id}`)
+										i.fas.fa-trash
+			.col-sm.col-pay
+				table.table
+					tr
+						th
+							b Total Price:
+						td $
+							span= priceSum
+								
+					tr
+						th
+							b ProductSum
+						td= productSum
+					tr 
+						th 
+							b Shipping
+						td
+				form(action="cart/checkout", method="GET", style="width:100%")
+					button.btn.btn-outline-success(type="submit", style="width:100%") Go to checkout
 
 	script(type="text/javascript").
 		let increaseBtn = document.getElementsByClassName('increase');
