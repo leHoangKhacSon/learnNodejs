@@ -147,46 +147,46 @@ html
 					span.sr-only Next
 		.container
 			.row
-				.col-sm.border-benifit.border-left
+				.col-md-3.border-benifit.border-left
 					.single-service
 						.box-item
 							i.fa-2x(class="fas fa-plane")
 						p.box-title FREE SHIPPING
 						p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo blanditiis odio.
-				.col-sm.border-benifit
+				.col-md-3.border-benifit
 					.single-service
 						.box-item
 							i.fa-2x(class="fas fa-money-check-alt")
 						p.box-title MONEY BACK
 						p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo blanditiis odio.
-				.col-sm.border-benifit
+				.col-md-3.border-benifit
 					.single-service
 						.box-item
 							i.fa-2x(class="fas fa-headphones")
 						p.box-title ONLINE SUPPORT
 						p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo blanditiis odio.
-				.col-sm.border-benifit.border-right
+				.col-md-3.border-benifit.border-right
 					.single-service
 						.box-item
 							i.fa-2x(class="fas fa-briefcase")
 						p.box-title BONUS PLUS
 						p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo blanditiis odio.
 			.row.pb-5.pt-5
-				.col-sm.box-img
+				.col-md.col-sm-12.box-img
 					span.border-style-left
 					span.border-style-right
 					span.border-style-top
 					span.border-style-bottom
 					a(href="#")
 						img.card-img-top(src="https://res.cloudinary.com/dcailib1d/image/upload/v1568446355/ImagesExpress/pic1_qkgxpf.jpg", alt="...")
-				.col-sm.box-img
+				.col-md.col-sm-12.box-img
 					span.border-style-left
 					span.border-style-right
 					span.border-style-top
 					span.border-style-bottom
 					a(href="#")
 						img.card-img-top(src="https://res.cloudinary.com/dcailib1d/image/upload/v1568446337/ImagesExpress/pic2_kdplhs.jpg", alt="...")
-				.col-sm.box-img
+				.col-md.col-sm-12.box-img
 					span.border-style-left
 					span.border-style-right
 					span.border-style-top
@@ -207,7 +207,7 @@ html
 			#home.tab-pane.fade.show.active(role='tabpanel' aria-labelledby='home-tab')
 				.row
 					each productFeatured in productsFeatured
-						.col-sm
+						.col-sm-6.col-md-3
 							.box-add-cart
 								a(href=`/cart/add/${productFeatured.id}`)
 									button.btn-add-cart ADD TO CART
@@ -221,7 +221,7 @@ html
 			#profile.tab-pane.fade(role='tabpanel' aria-labelledby='profile-tab')
 				.row
 					each productLatest in productsLatest
-						.col-sm
+						.col-sm-6.col-md-3
 							.box-add-cart
 								a(href=`/cart/add/${productLatest.id}`)
 									button.btn-add-cart ADD TO CART
@@ -235,7 +235,7 @@ html
 			#contact.tab-pane.fade(role='tabpanel' aria-labelledby='contact-tab')
 				.row
 					each productSpecial in productsSpecial
-						.col-sm
+						.col-sm-6.col-md-3
 							.box-add-cart
 								a(href=`/cart/add/${productSpecial.id}`)
 									button.btn-add-cart ADD TO CART
