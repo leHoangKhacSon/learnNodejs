@@ -1,15 +1,15 @@
 extends ../layout/common.pug
 
 block content
-	h1 
-		span Cart 
+	p.title-page Shopping Cart 
 	if sumCart === undefined
-		p Giỏ hàng chưa có sản phẩm nào
-		a(href='/products')
-			button.btn.btn-outline-info(type="button") Tiếp tục mua sắm
+		p(style="text-align: center") Giỏ hàng chưa có sản phẩm nào
+		p(style="text-align: center")
+			a(href='/products')
+				button.btn.btn-outline-info(type="button") Tiếp tục mua sắm
 	else 
 		p số loại sản phẩm  
-			span=   sumCart || 0
+			span= sumCart || 0
 
 		.row
 			.col-sm-8

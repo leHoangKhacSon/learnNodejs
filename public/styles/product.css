@@ -3,6 +3,12 @@
     font-family: "Lato";
 }
 
+.title-page {
+	font-size: 30px;
+	text-align: center;
+	text-transform: uppercase;
+}
+
 .product-details {
     margin-left: 10px;
     border: none;

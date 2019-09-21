@@ -15,10 +15,10 @@ html
 		.header
 			.d-flex.bk-head
 				.d-flex.mt-2.pt-2.support
-					i.ml-3(class="fas fa-phone-volume fa-2x")
+					i.ml-3(class="fas fa-phone-volume fa-2x" id="scroll-sp")
 					p.ml-2.pt-2 Support free: 033.6511.283
 		
-			nav#navbar-scroll(class="navbar navbar-expand-lg navbar-light bg-light")
+			nav.navbar-scroll(class="navbar navbar-expand-lg navbar-light bg-light")
 				a.logo(class="navbar-brand" href="https://coders-x.com/")
 					img(src="../images/logo.png", width="150", height="30", alt="")
 				// nav-bar responsive
@@ -246,6 +246,49 @@ html
 								p= productSpecial.name
 								p $90.00
 									span(style="text-decoration: line-through") $100.000
+
+				// BLOG
+			.blog
+				.row
+					.col-md-3
+						ul.blog-left
+							li.blog-left-top 
+								p customer
+							li.blog-left-main  
+								p reviews
+							li.blog-left-bot  
+								p x make your style coll x
+					.col-md-9
+						#carouselExampleIndicators.carousel.slide(data-ride="carousel", data-interval="2000")
+							.carousel-inner(role="listbox")
+								.carousel-item.active
+									.media
+										img.author-avt(src='../images/blog-img.png' alt='...')
+										.media-body
+											p.description-blog Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.			
+											p.author-blog John Doe
+												span.positon-blog Project Manager
+								.carousel-item
+									.media
+										img.author-avt(src='../images/blog-img.png' alt='...')
+										.media-body
+											p.description-blog Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.			
+											p.author-blog John Doe
+												span.positon-blog Project Manager
+								.carousel-item
+									.media
+										img.author-avt(src='../images/blog-img.png' alt='...')
+										.media-body
+											p.description-blog Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.			
+											p.author-blog John Doe
+												span.positon-blog Project Manager
+								a(class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev")
+									span(class="carousel-control-prev-icon" aria-hidden="true")
+									span(class="sr-only") Previous
+								a(class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next")
+									span(class="carousel-control-next-icon" aria-hidden="true")
+									span(class="sr-only") Next
+
 		// footer
 		.footer
 			.container
@@ -329,14 +372,6 @@ html
 				$('.carousel').carousel(interval: 1000);
 			});
 
-			window.onscroll = function() { scrollFunction() };
-			function scrollFunction() {
-				if(document.body.scrollTop > 60 || document.documentElement.scrollTop > 60) {
-					document.getElementById("navbar-scroll").style.top = "0";
-				}else {
-					document.getElementById("navbar-scroll").style.top = "-50px";
-				}
-			}
 
  
 
