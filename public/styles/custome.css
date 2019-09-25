@@ -413,7 +413,7 @@ nav .items .cart span {
 
 /* BLOG COMPONENT */
 .blog {
-	margin: 50px 0 50px 0;
+	margin: 50px 0 0 0;
 	background-color: #6796c3;
 }
 
@@ -431,8 +431,8 @@ nav .items .cart span {
 }
 
 .blog .media {
-	padding-top: 50px;
-	padding-bottom: 50px;	
+	padding-top: 60px;
+	padding-bottom: 60px;	
 }
 
 .blog .media .author-avt {
@@ -468,9 +468,9 @@ nav .items .cart span {
 /* ------------------------------------------- FOOTER -----------------------------------------------*/
 /* ------------------------------------------------------------------------------------------------- */
 .footer {
-	background-color: #999;
+	background-color: #EEE;
 	padding-top: 10px;
-	margin-top: 30px;
+	/* margin-top: 30px; */
 }
 
 .footer .footer-title {
@@ -559,8 +559,8 @@ nav .items .cart span {
 
 .copyright {
 	border-top: 1px solid #CCC;
-	background-color: #999;
-	color: #EEE;
+	background-color: #EEE;
+	color: #333;
 	margin-left: 30%;
 }
 
